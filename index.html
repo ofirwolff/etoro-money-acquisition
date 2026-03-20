@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>eToro Money – Consumer-Facing Acquisition Targets (UK & EU)</title>
+<meta name="description" content="Strategic fintech M&A opportunities for eToro Money across UK & EU markets. Interactive presentation with 12 acquisition targets.">
+<meta property="og:title" content="eToro Money – Acquisition Targets">
+<meta property="og:description" content="Strategic fintech M&A opportunities across UK & EU markets. 12 targets analysed with detailed reviews.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://companieslogo.com/img/orig/ETOR_BIG.D-b111a9c3.svg?t=1747411391">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  :root {
+    --etoro-green: #00b67a;
+    --etoro-dark: #0a0a0a;
+    --etoro-navy: #0a0a0a;
+    --etoro-blue: #1a73e8;
+    --etoro-light: #f4f6f9;
+    --etoro-gray: #8a94a6;
+    --tier1: #00b67a;
+    --tier2: #1a73e8;
+    --tier3: #8a94a6;
+    --accent-purple: #7c3aed;
+    --accent-amber: #f59e0b;
+    --accent-red: #ef4444;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--etoro-dark);
+    color: #e2e8f0;
+    overflow: hidden;
+    height: 100vh;
+  }
+
+  .presentation {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+  }
+
+  .slide {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    padding: 40px 80px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    overflow-y: auto;
+  }
+
+  .slide.active {
+    display: flex;
+    opacity: 1;
+  }
+
+  .slide-number {
+    position: fixed;
+    bottom: 24px;
+    right: 40px;
+    font-size: 14px;
+    color: var(--etoro-gray);
+    font-weight: 500;
+    z-index: 100;
+  }
+
+  .progress-bar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--etoro-green), var(--etoro-blue));
+    transition: width 0.4s ease;
+    z-index: 100;
+  }
+
+  /* Navigation */
+  .nav-controls {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 100;
+  }
+
+  .nav-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: all 0.2s;
+    backdrop-filter: blur(10px);
+  }
+
+  .nav-btn:hover {
+    background: var(--etoro-green);
+    border-color: var(--etoro-green);
+  }
+
+  /* Title Slide */
+  .slide-title {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #0a0a0a;
+  }
+
+  .slide-title .logo {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--etoro-green);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    display: none;
+  }
+
+  .slide-title h1 {
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.15;
+    background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+    max-width: 900px;
+  }
+
+  .slide-title .subtitle {
+    font-size: 22px;
+    color: var(--etoro-gray);
+    font-weight: 400;
+    margin-bottom: 48px;
+  }
+
+  .slide-title .badge {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 20px;
+    background: rgba(0, 182, 122, 0.15);
+    color: var(--etoro-green);
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid rgba(0, 182, 122, 0.3);
+  }
+
+  /* Section headers */
+  h2.section-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--etoro-green);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  h3.slide-heading {
+    font-size: 38px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 36px;
+  }
+
+  /* Cards */
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-top: 10px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .card-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .card {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-radius: 0;
+    padding: 22px 0;
+    transition: all 0.3s;
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    align-items: start;
+    gap: 16px;
+    max-width: 900px;
+  }
+
+  .card:last-child {
+    border-bottom: none;
+  }
+
+  .card:hover {
+    background: rgba(255,255,255,0.02);
+  }
+
+  .card .icon {
+    font-size: 22px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  .card .card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .card h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0;
+  }
+
+  .card p {
+    font-size: 16px;
+    color: var(--etoro-gray);
+    line-height: 1.65;
+  }
+
+  /* Tables */
+  .table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 10px;
+    border-radius: 0;
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  thead th {
+    background: transparent;
+    color: var(--etoro-green);
+    font-weight: 700;
+    padding: 10px 16px 6px;
+    text-align: left;
+    white-space: nowrap;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: none;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.2s;
+    position: relative;
+  }
+
+  thead th:hover {
+    color: #fff;
+  }
+
+  thead th .sort-icon {
+    margin-left: 6px;
+    font-size: 10px;
+    opacity: 0.4;
+    transition: opacity 0.2s;
+  }
+
+  thead th.sorted .sort-icon {
+    opacity: 1;
+    color: var(--etoro-green);
+  }
+
+  /* Filter row */
+  thead tr.filter-row th {
+    padding: 2px 16px 10px;
+    border-bottom: 1px solid rgba(0, 182, 122, 0.2);
+    cursor: default;
+  }
+
+  .col-filter {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px;
+    color: #cbd5e1;
+    font-size: 11px;
+    padding: 4px 6px;
+    outline: none;
+    font-family: inherit;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .col-filter:focus {
+    border-color: rgba(0,182,122,0.4);
+  }
+
+  .col-filter option {
+    background: #141414;
+    color: #cbd5e1;
+  }
+
+  /* Drag-and-drop */
+  tbody tr.data-row {
+    cursor: grab;
+    transition: background 0.2s, opacity 0.2s, transform 0.15s;
+  }
+
+  tbody tr.data-row.dragging {
+    opacity: 0.35;
+    background: rgba(0,182,122,0.06);
+  }
+
+  tbody tr.data-row.drag-over-top {
+    box-shadow: inset 0 2px 0 0 var(--etoro-green);
+  }
+
+  tbody tr.data-row.drag-over-bottom {
+    box-shadow: inset 0 -2px 0 0 var(--etoro-green);
+  }
+
+  .drag-handle {
+    cursor: grab;
+    color: rgba(255,255,255,0.18);
+    font-size: 14px;
+    margin-right: 6px;
+    transition: color 0.2s;
+    user-select: none;
+  }
+
+  tbody tr.data-row:hover .drag-handle {
+    color: rgba(255,255,255,0.45);
+  }
+
+  tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    color: #cbd5e1;
+    vertical-align: middle;
+  }
+
+  tbody tr.data-row:hover {
+    background: rgba(255,255,255,0.03);
+  }
+
+  tbody tr.data-row.expanded {
+    background: rgba(0, 182, 122, 0.04);
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+
+  .company-name {
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .company-link {
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+
+  .company-link:hover {
+    color: var(--etoro-green);
+  }
+
+  .company-link .link-icon {
+    font-size: 11px;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .company-link:hover .link-icon {
+    opacity: 1;
+  }
+
+  .expand-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.15);
+    text-align: center;
+    line-height: 18px;
+    font-size: 12px;
+    color: var(--etoro-gray);
+    transition: all 0.3s;
+    margin-right: 8px;
+    flex-shrink: 0;
+  }
+
+  tr.expanded .expand-icon {
+    transform: rotate(90deg);
+    border-color: var(--etoro-green);
+    color: var(--etoro-green);
+  }
+
+  /* Expanded detail row */
+  .detail-row {
+    display: none;
+  }
+
+  .detail-row.visible {
+    display: table-row;
+  }
+
+  .detail-row td {
+    padding: 0;
+    border-bottom: 1px solid rgba(0, 182, 122, 0.1);
+  }
+
+  .detail-panel {
+    padding: 20px 24px 24px 52px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    animation: slideDown 0.3s ease;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .detail-section h5 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--etoro-green);
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+
+  .detail-section p, .detail-section ul {
+    font-size: 13px;
+    color: #94a3b8;
+    line-height: 1.7;
+  }
+
+  .detail-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .detail-section ul li {
+    padding: 3px 0;
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .detail-section ul li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--etoro-green);
+    font-weight: 700;
+  }
+
+  .detail-section .detail-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--etoro-blue);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .detail-section .detail-link:hover {
+    text-decoration: underline;
+  }
+
+  .star { color: var(--accent-amber); }
+
+  /* Flow diagram */
+  .flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin: 40px 0;
+  }
+
+  .flow-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 30px;
+    background: transparent;
+    border-radius: 0;
+    border: none;
+    border-bottom: 2px solid rgba(255,255,255,0.08);
+    min-width: 130px;
+  }
+
+  .flow-item.highlight {
+    background: transparent;
+    border-bottom-color: var(--etoro-green);
+  }
+
+  .flow-item .flow-icon { font-size: 28px; }
+  .flow-item .flow-label { font-size: 15px; font-weight: 700; color: #fff; }
+
+  .flow-arrow {
+    font-size: 24px;
+    color: var(--etoro-green);
+    padding: 0 8px;
+  }
+
+  /* Tier badges */
+  .tier-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .tier-1 { background: rgba(0,182,122,0.15); color: var(--tier1); }
+  .tier-2 { background: rgba(26,115,232,0.15); color: var(--tier2); }
+  .tier-3 { background: rgba(138,148,166,0.15); color: var(--tier3); }
+
+  /* Insight slide */
+  .insight-box {
+    background: transparent;
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    border-radius: 0;
+    padding: 48px;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .insight-box h4 {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 32px;
+    font-weight: 700;
+  }
+
+  .comparison {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .comparison-side {
+    padding: 32px;
+    border-radius: 16px;
+    text-align: center;
+  }
+
+  .comparison-side.before {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(239, 68, 68, 0.3);
+  }
+
+  .comparison-side.after {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(0, 182, 122, 0.3);
+  }
+
+  .comparison-side h5 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+
+  .comparison-side.before h5 { color: var(--accent-red); }
+  .comparison-side.after h5 { color: var(--etoro-green); }
+
+  .comparison-side p {
+    font-size: 20px;
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .comparison-arrow {
+    font-size: 36px;
+    color: var(--etoro-green);
+  }
+
+  /* Company detail cards */
+  .company-detail {
+    background: transparent;
+    border: none;
+    border-left: 2px solid rgba(255,255,255,0.08);
+    border-radius: 0;
+    padding: 4px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .company-detail .cd-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .company-detail .cd-name {
+    font-size: 20px;
+    font-weight: 800;
+    color: #fff;
+  }
+
+  .company-detail .cd-region {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--etoro-gray);
+    font-weight: 600;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .company-detail .cd-val {
+    font-size: 14px;
+    color: var(--etoro-green);
+    font-weight: 600;
+  }
+
+  .company-detail .cd-features {
+    font-size: 13px;
+    color: #94a3b8;
+    line-height: 1.6;
+  }
+
+  .company-detail .cd-insight {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent-amber);
+    margin-top: auto;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .company-detail a {
+    color: var(--etoro-blue);
+    text-decoration: none;
+    font-size: 13px;
+  }
+
+  .company-detail a:hover { text-decoration: underline; }
+
+  /* Recommendation */
+  .rec-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 20px;
+  }
+
+  .rec-column {
+    border-radius: 0;
+    padding: 32px;
+    text-align: center;
+  }
+
+  .rec-column.t1 {
+    background: transparent;
+    border: none;
+    border-top: 2px solid var(--tier1);
+  }
+
+  .rec-column.t2 {
+    background: transparent;
+    border: none;
+    border-top: 2px solid var(--tier2);
+  }
+
+  .rec-column.t3 {
+    background: transparent;
+    border: none;
+    border-top: 2px solid var(--tier3);
+  }
+
+  .rec-column h4 {
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .rec-column.t1 h4 { color: var(--tier1); }
+  .rec-column.t2 h4 { color: var(--tier2); }
+  .rec-column.t3 h4 { color: var(--tier3); }
+
+  .rec-item {
+    padding: 14px 0;
+    border-radius: 0;
+    background: transparent;
+    margin-bottom: 0;
+    font-weight: 600;
+    font-size: 16px;
+    color: #fff;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .rec-item:last-child {
+    border-bottom: none;
+  }
+
+  .rec-item .rec-sub {
+    font-size: 12px;
+    color: var(--etoro-gray);
+    font-weight: 400;
+    margin-top: 4px;
+  }
+
+  /* Criteria list */
+  .criteria-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-top: 10px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .criteria-item {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    align-items: baseline;
+    gap: 20px;
+    padding: 18px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-radius: 0;
+  }
+
+  .criteria-item:last-child {
+    border-bottom: none;
+  }
+
+  .criteria-item .ci-label {
+    font-size: 12px;
+    color: var(--etoro-gray);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .criteria-item .ci-value {
+    font-size: 18px;
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .slide-content-scroll {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+    padding-bottom: 60px;
+  }
+
+  .slide-content-scroll::-webkit-scrollbar { width: 4px; }
+  .slide-content-scroll::-webkit-scrollbar-track { background: transparent; }
+  .slide-content-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+
+  /* Persistent logo */
+  .slide-logo {
+    position: absolute;
+    top: 28px;
+    right: 40px;
+    height: 30px;
+    opacity: 0.7;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  .slide-title .slide-logo {
+    display: none;
+  }
+
+  .slide-title .title-logo {
+    height: 48px;
+    margin-bottom: 32px;
+  }
+
+  /* Print styles */
+  @media print {
+    body { background: #fff; color: #1a1a2e; }
+    .slide { position: relative; page-break-after: always; display: flex !important; opacity: 1 !important; height: auto; min-height: 100vh; }
+    .nav-controls, .progress-bar, .slide-number { display: none; }
+    .card, .company-detail, .table-container, .rec-column, .criteria-item, .insight-box {
+      border-color: #e2e8f0;
+      background: transparent;
+    }
+    h3.slide-heading, .company-detail .cd-name, .rec-item { color: #1a1a2e; }
+    td, .card p, .company-detail .cd-features { color: #475569; }
+  }
+</style>
+</head>
+<body>
+
+<div class="presentation" id="presentation">
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- Slide 1: Title with circle diagram -->
+  <div class="slide slide-title active" data-slide="0">
+    <img src="https://companieslogo.com/img/orig/ETOR_BIG.D-b111a9c3.svg?t=1747411391" alt="eToro" class="title-logo">
+    <div style="display:flex; align-items:center; gap:80px;">
+      <div style="text-align:left;">
+        <h1 style="text-align:left;">Consumer-Facing<br>Acquisition Targets</h1>
+        <p class="subtitle" style="text-align:left;">UK & EU Market — Strategic Fintech M&A Opportunities</p>
+        <div class="badge" style="margin-top:24px;">Confidential — March 2026</div>
+      </div>
+      <div style="flex-shrink:0;">
+        <svg width="480" height="480" viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 0 40px rgba(59,130,246,0.12));">
+          <defs>
+            <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.10"/>
+              <stop offset="100%" stop-color="#0a0a0a" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="480" height="480" fill="none"/>
+          <circle cx="240" cy="240" r="220" fill="url(#bgGlow)"/>
+          <circle cx="240" cy="240" r="180" fill="none" stroke="rgba(59,130,246,0.09)" stroke-width="1" stroke-dasharray="6 4"/>
+          <circle cx="240" cy="240" r="130" fill="none" stroke="rgba(59,130,246,0.06)" stroke-width="1" stroke-dasharray="4 6"/>
+          <!-- Center hub -->
+          <circle cx="240" cy="240" r="66" fill="rgba(59,130,246,0.06)" stroke="rgba(59,130,246,0.30)" stroke-width="2"/>
+          <text x="240" y="232" text-anchor="middle" fill="#60a5fa" font-size="18" font-weight="700" font-family="Inter,system-ui,sans-serif" letter-spacing="1">eToro</text>
+          <text x="240" y="254" text-anchor="middle" fill="rgba(96,165,250,0.55)" font-size="13" font-family="Inter,system-ui,sans-serif">SuperApp</text>
+          <!-- Spend (top) -->
+          <circle cx="240" cy="42" r="42" fill="rgba(59,130,246,0.04)" stroke="rgba(148,163,184,0.22)" stroke-width="1.5"/>
+          <g transform="translate(240,34)" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="-12" y="-8" width="24" height="16" rx="2.5"/><line x1="-12" y1="-3" x2="12" y2="-3"/><line x1="-6" y1="2" x2="0" y2="2"/>
+          </g>
+          <text x="240" y="62" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="12" font-weight="500" font-family="Inter,system-ui,sans-serif">Spend</text>
+          <line x1="240" y1="84" x2="240" y2="174" stroke="rgba(148,163,184,0.12)" stroke-width="1" stroke-dasharray="3 3"/>
+          <!-- Save (top-right) -->
+          <circle cx="406" cy="140" r="42" fill="rgba(59,130,246,0.04)" stroke="rgba(148,163,184,0.22)" stroke-width="1.5"/>
+          <g transform="translate(406,132)" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="-11" y="-9" width="22" height="18" rx="1"/><line x1="-11" y1="-4" x2="11" y2="-4"/><line x1="0" y1="-9" x2="0" y2="9"/><circle cx="-5" cy="3" r="2" fill="rgba(255,255,255,0.3)"/><circle cx="5" cy="3" r="2" fill="rgba(255,255,255,0.3)"/>
+          </g>
+          <text x="406" y="160" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="12" font-weight="500" font-family="Inter,system-ui,sans-serif">Save</text>
+          <line x1="376" y1="164" x2="302" y2="214" stroke="rgba(148,163,184,0.12)" stroke-width="1" stroke-dasharray="3 3"/>
+          <!-- Invest (bottom-right) -->
+          <circle cx="412" cy="348" r="42" fill="rgba(59,130,246,0.04)" stroke="rgba(148,163,184,0.22)" stroke-width="1.5"/>
+          <g transform="translate(412,340)" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="-10,8 -3,-2 3,4 10,-8"/><line x1="5" y1="-8" x2="10" y2="-8"/><line x1="10" y1="-8" x2="10" y2="-3"/>
+          </g>
+          <text x="412" y="368" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="12" font-weight="500" font-family="Inter,system-ui,sans-serif">Invest</text>
+          <line x1="380" y1="326" x2="304" y2="266" stroke="rgba(148,163,184,0.12)" stroke-width="1" stroke-dasharray="3 3"/>
+          <!-- Manage (top-left) -->
+          <circle cx="74" cy="140" r="42" fill="rgba(59,130,246,0.04)" stroke="rgba(148,163,184,0.22)" stroke-width="1.5"/>
+          <g transform="translate(74,132)" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="-10" y="-7" width="20" height="14" rx="1.5"/><line x1="-5" y1="7" x2="-5" y2="2"/><line x1="0" y1="7" x2="0" y2="-2"/><line x1="5" y1="7" x2="5" y2="0"/>
+          </g>
+          <text x="74" y="160" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="12" font-weight="500" font-family="Inter,system-ui,sans-serif">Manage</text>
+          <line x1="104" y1="164" x2="178" y2="214" stroke="rgba(148,163,184,0.12)" stroke-width="1" stroke-dasharray="3 3"/>
+          <!-- Trade (bottom-left) -->
+          <circle cx="68" cy="348" r="42" fill="rgba(59,130,246,0.04)" stroke="rgba(148,163,184,0.22)" stroke-width="1.5"/>
+          <g transform="translate(68,340)" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="-10,6 -4,-2 2,4 10,-6"/><polyline points="-10,-4 -4,4 2,-2 10,6"/>
+          </g>
+          <text x="68" y="368" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="12" font-weight="500" font-family="Inter,system-ui,sans-serif">Trade</text>
+          <line x1="100" y1="326" x2="176" y2="266" stroke="rgba(148,163,184,0.12)" stroke-width="1" stroke-dasharray="3 3"/>
+          <!-- Banking (bottom) -->
+          <circle cx="240" cy="438" r="42" fill="rgba(59,130,246,0.04)" stroke="rgba(148,163,184,0.22)" stroke-width="1.5"/>
+          <g transform="translate(240,430)" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="-11" y="-4" width="22" height="12" rx="2"/><circle cx="0" cy="2" r="3"/><line x1="0" y1="-1" x2="0" y2="2"/>
+          </g>
+          <text x="240" y="458" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="12" font-weight="500" font-family="Inter,system-ui,sans-serif">Banking</text>
+          <line x1="240" y1="396" x2="240" y2="306" stroke="rgba(148,163,184,0.12)" stroke-width="1" stroke-dasharray="3 3"/>
+          <!-- Animated pulse -->
+          <circle cx="240" cy="240" r="66" fill="none" stroke="rgba(59,130,246,0.18)" stroke-width="1">
+            <animate attributeName="r" values="66;94;66" dur="4s" repeatCount="indefinite"/>
+            <animate attributeName="stroke-opacity" values="0.18;0;0.18" dur="4s" repeatCount="indefinite"/>
+          </circle>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 2: Strategic Motivation -->
+  <div class="slide" data-slide="1" style="align-items:center; justify-content:center;">
+    <h2 class="section-title">01 — Strategic Motivation</h2>
+    <h3 class="slide-heading" style="margin-bottom:48px;">From Basic Card Program to<br>Full Financial SuperApp</h3>
+
+    <p style="font-size:22px; color:#cbd5e1; line-height:1.9; max-width:800px; text-align:center; margin-bottom:48px;">
+      Building a full financial platform takes time — even with AI. <strong style="color:#fff;">Licenses, regulatory approvals, and third-party partnerships</strong> cannot be accelerated through technology alone.
+    </p>
+
+    <div style="max-width:800px; border-top:1px solid rgba(255,255,255,0.06); padding-top:40px; text-align:center;">
+      <h4 style="font-size:14px; text-transform:uppercase; letter-spacing:2px; color:var(--etoro-green); margin-bottom:20px; font-weight:700;">Strategic Objective</h4>
+      <p style="font-size:20px; color:var(--etoro-gray); line-height:1.7; margin-bottom:28px;">
+        Accelerate through acquisition of fintech companies that bring:
+      </p>
+      <div style="display:inline-grid; grid-template-columns:1fr 1fr; gap:16px 60px; text-align:left; font-size:19px; color:#fff; line-height:1.8;">
+        <span style="padding-left:20px; position:relative;"><span style="position:absolute; left:0; color:var(--etoro-green); font-weight:700;">›</span> Banking & card capabilities</span>
+        <span style="padding-left:20px; position:relative;"><span style="position:absolute; left:0; color:var(--etoro-green); font-weight:700;">›</span> Open Banking aggregation</span>
+        <span style="padding-left:20px; position:relative;"><span style="position:absolute; left:0; color:var(--etoro-green); font-weight:700;">›</span> Financial management (PFM)</span>
+        <span style="padding-left:20px; position:relative;"><span style="position:absolute; left:0; color:var(--etoro-green); font-weight:700;">›</span> Savings & behavioral finance</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 3: Why Acquisition -->
+  <div class="slide" data-slide="2" style="align-items:center;">
+    <h2 class="section-title">01 — Strategic Motivation</h2>
+    <h3 class="slide-heading">Why Acquisition vs. Build?</h3>
+    <div class="card-grid">
+      <div class="card">
+        <div class="icon">⏱️</div>
+        <div class="card-text">
+          <h4>Faster Time-to-Market</h4>
+          <p>Save 12–24 months of development time. Launch new capabilities immediately instead of building from scratch.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="icon">🪪</div>
+        <div class="card-text">
+          <h4>Licenses & Connected Services</h4>
+          <p>Gain additional EMI and banking licenses where needed, plus pre-built integrations with third-party services (Open Banking, card networks, credit agencies) that take significant time to acquire independently.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="icon">🧠</div>
+        <div class="card-text">
+          <h4>Proven Products & Teams</h4>
+          <p>Get battle-tested products with established UX patterns, along with experienced teams who built them.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="icon">👥</div>
+        <div class="card-text">
+          <h4>Existing User Base</h4>
+          <p>Acquire engaged user communities (100K–2M+) that can be cross-sold into eToro's investing ecosystem.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 4: Acquisition Targets Table -->
+  <div class="slide" data-slide="3">
+    <h2 class="section-title">02 — Acquisition Targets</h2>
+    <h3 class="slide-heading">Acquisition Targets — Strategic Fit & Value <span style="font-size:14px; font-weight:400; color:var(--etoro-gray); margin-left:12px;">Click row for details · Headers to sort · Filters below · Drag to reorder</span></h3>
+    <div class="slide-content-scroll">
+      <div class="table-container">
+        <table id="mainTable">
+          <thead>
+            <tr>
+              <th data-col="0" data-type="numeric">Tier <span class="sort-icon">▲▼</span></th>
+              <th data-col="1" data-type="string"><span></span>Company <span class="sort-icon">▲▼</span></th>
+              <th data-col="2" data-type="string">Region <span class="sort-icon">▲▼</span></th>
+              <th data-col="3" data-type="string">Core Services <span class="sort-icon">▲▼</span></th>
+              <th data-col="4" data-type="string">License <span class="sort-icon">▲▼</span></th>
+              <th data-col="5" data-type="string">Users <span class="sort-icon">▲▼</span></th>
+              <th data-col="6" data-type="numeric">Team <span class="sort-icon">▲▼</span></th>
+              <th data-col="7" data-type="numeric">Valuation <span class="sort-icon">▲▼</span></th>
+              <th data-col="8" data-type="string">What eToro Gains <span class="sort-icon">▲▼</span></th>
+            </tr>
+            <tr class="filter-row">
+              <th><select class="col-filter" data-filter-col="tier"><option value="">All</option></select></th>
+              <th></th>
+              <th><select class="col-filter" data-filter-col="region"><option value="">All</option></select></th>
+              <th></th>
+              <th><select class="col-filter" data-filter-col="license"><option value="">All</option></select></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="mainTableBody">
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 5: Thank You -->
+  <div class="slide slide-title" data-slide="4">
+    <img src="https://companieslogo.com/img/orig/ETOR_BIG.D-b111a9c3.svg?t=1747411391" alt="eToro" class="title-logo">
+    <h1>Thank You</h1>
+    <p class="subtitle">Ready to transform eToro into a primary financial hub</p>
+    <div style="display:flex; gap:20px; margin-top:20px;">
+      <div class="badge" style="background:rgba(0,182,122,0.15);">Spend → Save → Manage → Invest → Trade</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-number" id="slideNumber">1 / 12</div>
+
+<div class="nav-controls">
+  <button class="nav-btn" onclick="changeSlide(-1)">←</button>
+  <button class="nav-btn" onclick="changeSlide(1)">→</button>
+</div>
+
+<script>
+  const logoUrl = 'https://companieslogo.com/img/orig/ETOR_BIG.D-b111a9c3.svg?t=1747411391';
+  document.querySelectorAll('.slide:not(.slide-title)').forEach(slide => {
+    const img = document.createElement('img');
+    img.src = logoUrl;
+    img.alt = 'eToro';
+    img.className = 'slide-logo';
+    slide.prepend(img);
+  });
+
+  // ── Company Data ──
+  const companies = [
+    // ── Tier 1 — High Priority ──
+    {
+      name: 'Emma', url: 'https://emma-app.com', region: 'UK', services: 'Aggregation, budgeting, subscriptions',
+      license: 'AISP', users: '3M+', usersSort: 3000000, team: '30–40', teamSort: 35, valuation: '$30–50M', valSort: 40,
+      tier: 1, fit: '⭐ Best PFM UX', geography: 'UK', gains: 'Full financial intelligence layer', notes: 'Top priority',
+      founded: '2016', hq: 'London, UK', regulation: 'FCA AISP',
+      keyFeatures: ['Multi-bank aggregation (50+ UK banks)', 'AI-powered budgeting & auto-categorisation', 'Subscription detection & cancellation', 'Net worth tracking with offline assets', 'True Balance (spendable money after commitments)', 'Emma Pay (scan-to-pay)', 'Monthly Autosave with FSCS protection'],
+      funding: '~$10M total raised across multiple rounds. 3M+ users as of 2025.',
+      whyEtoro: 'Provides the complete "financial brain" — aggregation, categorisation, budgets, and net worth in a single proven product. Best-in-class PFM UX that would take years to replicate.',
+      whyTier: 'Tier 1 — AISP-licensed Open Banking aggregation + best-in-class PFM UX with 3M+ users. Directly fills eToro\'s biggest gap: no financial intelligence layer. Realistic valuation ($30–50M) and proven product.'
+    },
+    {
+      name: 'Plum', url: 'https://withplum.com', region: 'UK/EU', services: 'Automated savings, investing',
+      license: 'EMI', users: '1M+', usersSort: 1000000, team: '70–90', teamSort: 80, valuation: '$30–60M', valSort: 45,
+      tier: 1, fit: 'Savings funnel', geography: 'UK/EU', gains: 'Save → Invest funnel', notes: 'Drives save → invest',
+      founded: '2016', hq: 'London, UK', regulation: 'EMI Licensed',
+      keyFeatures: ['AI-calculated automatic weekly savings', 'Round Ups, Pay Day saver, 52-Week Challenge', 'Access to 3,000+ stocks (min £1, no commission)', '26 managed mutual funds', 'Stocks & Shares ISA + Cash ISA', 'Splitter (auto-divide between savings & investments)', 'Smart rules engine (Rainy Days, Naughty Rule)'],
+      funding: 'Raised ~$30M+ across multiple rounds. 1M+ users with strong engagement metrics. EMI license enables holding and moving money.',
+      whyEtoro: 'The natural Save → Invest funnel. Users start by automating savings, then graduate to investing. With eToro, this becomes Save → Invest → Trade — the ideal onboarding pipeline.',
+      whyTier: 'Tier 1 — EMI-licensed with automated savings + investing. Drives the save → invest funnel that is core to eToro\'s strategy. Strong user engagement (1M+) at an accessible valuation ($30–60M).'
+    },
+    {
+      name: 'Pockit', url: 'https://pockit.com', region: 'UK', services: 'Accounts, cards',
+      license: 'EMI', users: '~900K', usersSort: 900000, team: '50–70', teamSort: 60, valuation: '$20–40M', valSort: 30,
+      tier: 1, fit: 'Everyday banking', geography: 'UK', gains: 'Fast path to banking', notes: 'EMI + accounts + cards',
+      founded: '2014', hq: 'London, UK', regulation: 'EMI Licensed',
+      keyFeatures: ['Account setup in 3 minutes, no credit checks', 'Contactless Mastercard (virtual + physical)', 'UK sort code & account number, direct debits', 'Apple Pay & Google Pay', 'International transfers via Wise', 'Salary advance (paid a day early)', 'Credit Builder programme (results in 3 months)', 'Up to 15% cashback rewards'],
+      funding: 'Backed by Puma Investments. 900K+ customers, 1M+ downloads. Plans from £2.49/month with Pay-as-you-go option.',
+      whyEtoro: 'Financial inclusion play — simple, no-credit-check accounts reach underserved demographics. Credit Builder programme creates a natural upsell path into eToro investing as users build financial confidence.',
+      whyTier: 'Tier 1 — EMI-licensed with accounts + cards ready to go. Fast path to everyday banking for eToro at an attractive valuation ($20–40M). Provides immediate card and account infrastructure.'
+    },
+    {
+      name: 'Paynetics', url: 'https://paynetics.com', region: 'EU', services: 'Issuing, acquiring',
+      license: 'EMI', users: 'B2B', usersSort: 500000, team: '80–150', teamSort: 115, valuation: '$30–70M', valSort: 50,
+      tier: 1, fit: 'Card infrastructure', geography: 'EU', gains: 'Card stack control', notes: 'Critical infra',
+      founded: '2005', hq: 'London, UK / Sofia, Bulgaria', regulation: 'European EMI, FCA regulated',
+      keyFeatures: ['Principal member of Visa, Mastercard, UnionPay', 'Full card issuing (virtual, physical, prepaid, debit, credit)', 'Omnichannel acquiring (e-commerce, POS, softPOS)', 'Apple Pay & Google Pay tokenisation', 'SEPA & SWIFT direct member', 'Payment accounts with dedicated IBANs', 'Open Banking (PISP/AISP) services', 'Merchant onboarding & fraud prevention'],
+      funding: 'Operating since 2005. €2.5M venture round (2020). Revenue-generating B2B infrastructure company. Visa Ready certified.',
+      whyEtoro: 'Full card stack control — issuing and acquiring under one roof. eToro could design custom card programmes (cashback on trades, round-up investing) without third-party dependencies.',
+      whyTier: 'Tier 1 — EMI-licensed card issuing + acquiring infrastructure. Critical for eToro to control its own card stack (Visa/Mastercard principal member). Enables custom card programmes without third-party dependencies.'
+    },
+    {
+      name: 'Moneyhub', url: 'https://www.moneyhub.com', region: 'UK', services: 'Open Banking, data, PFM APIs',
+      license: 'AIS/PIS', users: 'B2B (millions via partners)', usersSort: 5000000, team: '~100', teamSort: 100, valuation: '$40–80M', valSort: 60,
+      tier: 1, fit: 'Data & PFM infrastructure', geography: 'UK/EU', gains: 'Open Finance platform', notes: 'Scalable OB infra',
+      founded: '2014', hq: 'Bristol, UK', regulation: 'FCA AIS/PIS regulated',
+      keyFeatures: ['Best-in-class categorisation & data enrichment engine', 'Open Banking data aggregation (AIS) across all major UK banks', 'Payment initiation services (PIS) including Variable Recurring Payments', 'AI-powered personalised financial insights & next-best-action recommendations', 'White-label PFM portals and embedded solutions', 'Data Explorer analytics dashboards for business intelligence', 'Partners include Nationwide, Mercer, Admiral, Paragon Bank'],
+      funding: 'Backed by multiple rounds. Revenue-generating B2B platform. Trusted by major UK banks, pension providers, and lenders. Powers financial journeys for millions of end-users through enterprise clients.',
+      whyEtoro: 'Turnkey Open Finance infrastructure — aggregation, enrichment, insights, and payments in one regulated platform. eToro gets instant access to bank-grade data intelligence trusted by Nationwide and Mercer, plus PIS capabilities for seamless account-to-account payments. The categorisation engine alone would take years to replicate.',
+      whyTier: 'Tier 1 — FCA AIS/PIS regulated Open Banking platform with best-in-class data enrichment. Scalable infrastructure already trusted by Nationwide, Mercer, Admiral. Provides the data backbone eToro needs for aggregation + payments.'
+    },
+    // ── Tier 2 — Strategic but Conditional ──
+    {
+      name: 'Meniga', url: 'https://meniga.com', region: 'EU', services: 'PFM engine, insights',
+      license: 'Tech', users: 'Millions', usersSort: 100000000, team: '80–100', teamSort: 90, valuation: '$40–80M', valSort: 60,
+      tier: 2, fit: 'Bank-grade PFM', geography: 'EU', gains: 'Enterprise insights', notes: 'Strong data, less consumer-facing',
+      founded: '2009', hq: 'Reykjavik, Iceland / London, UK', regulation: 'Technology provider',
+      keyFeatures: ['White-label PFM engine for banks', 'AI-driven hyper-personalised financial insights', 'Automated goal-based savings logic', 'Conversational interfaces (NLP, voice assistants)', 'Transaction enrichment & categorisation', 'Omnichannel deployment (web, mobile, voice)', 'Financial wellness & education modules'],
+      funding: '€55M total raised (Series D). Backed by Groupe BPCE, Crédito Agrícola, UniCredit. Serves 100M+ customers across 30 countries via bank partnerships.',
+      whyEtoro: 'Enterprise-grade PFM infrastructure proven at scale with tier-1 banks (UniCredit, Swedbank, UOB). Would give eToro a bank-quality insights engine serving millions from day one.',
+      whyTier: 'Tier 2 — Strong PFM data + insights engine, but primarily a B2B tech provider with less consumer-facing product. Requires integration effort to make consumer-ready. Valuation on the higher side ($40–80M).'
+    },
+    {
+      name: 'thinkmoney', url: 'https://thinkmoney.co.uk', region: 'UK', services: 'Accounts, loans',
+      license: 'Banking', users: '~1M', usersSort: 1000000, team: '~200', teamSort: 200, valuation: '$40–80M', valSort: 60,
+      tier: 2, fit: 'Credit + banking', geography: 'UK', gains: 'Credit layer', notes: 'Heavy regulatory + ops complexity',
+      founded: '2001', hq: 'Manchester, UK', regulation: 'FCA authorised, Banking license',
+      keyFeatures: ['Full UK current account with sort code & account number', 'Personal loans £1,000–£25,000 (1–5 year terms)', 'Homeowner loans & car finance', 'Budgeting-focused account management', 'Loan funding within 24 hours', 'Soft credit check (no score impact)', 'Debt consolidation services'],
+      funding: 'Established player since 2001. Serves ~1M UK customers. Banking license is a major strategic asset. Lending powered by Lendable partnership.',
+      whyEtoro: 'The only target with a full UK banking license AND credit products. Gives eToro the ability to offer current accounts and loans — a transformative step from trading platform to full financial hub.',
+      whyTier: 'Tier 2 — Valuable banking license + credit products, but comes with heavy regulatory and operational complexity. Adds lending capabilities that are transformative but require significant oversight and integration.'
+    },
+    {
+      name: 'Monese', url: 'https://monese.com', region: 'UK/EU', services: 'Accounts, transfers',
+      license: 'EMI', users: '~2M', usersSort: 2000000, team: '~200', teamSort: 200, valuation: '$40–70M', valSort: 55,
+      tier: 2, fit: 'Cross-border banking', geography: 'UK/EU', gains: 'Cross-border growth', notes: 'Possible opportunistic / distressed play',
+      founded: '2015', hq: 'London, UK', regulation: 'EMI Licensed, Multi-country',
+      keyFeatures: ['Multi-currency accounts (GBP, EUR, RON)', 'Contactless Mastercard debit card', 'Free instant Monese-to-Monese transfers', 'Joint accounts & money pots with round-ups', 'Cash top-ups at 40,000+ UK locations', 'Google Pay & Apple Pay', 'Business accounts with invoicing & accounting'],
+      funding: 'Raised ~$200M+ total across Series A–C. 2M+ users across UK and EU. Four pricing tiers from free to £14.95/month.',
+      whyEtoro: 'Largest user base of all targets (2M+) with proven cross-border banking infrastructure. Multi-currency GBP/EUR/RON accounts map perfectly to eToro\'s existing currency account model.',
+      whyTier: 'Tier 2 — Good user base (2M+) and EMI license, but possible opportunistic / distressed play. Raised $200M+ but may be available at lower valuation. Cross-border capability is useful but not unique.'
+    },
+    // ── Tier 3 — Low Priority / Limited Fit ──
+    {
+      name: 'Yolt', url: 'https://yolt.com', region: 'EU', services: 'Aggregation APIs',
+      license: 'OB infra', users: 'B2B', usersSort: 900000, team: '~150', teamSort: 150, valuation: '$30–60M', valSort: 45,
+      tier: 3, fit: 'Data layer', geography: 'EU', gains: 'Data infrastructure', notes: 'Unclear ownership / spin-out structure',
+      founded: '2016', hq: 'Amsterdam, Netherlands', regulation: 'FCA AIS/PIS registered',
+      keyFeatures: ['Open Banking AIS & PIS APIs', 'Account aggregation across 12+ major banks', 'Single API integration for multi-bank data', 'Payment initiation services', 'ING banking infrastructure heritage', 'Coverage across UK, Italy, France markets', 'Built for B2B fintech integration'],
+      funding: 'Originally backed by ING Bank. Consumer app reached 900K+ users before pivoting to B2B API services (Yolt Technology Services).',
+      whyEtoro: 'Ready-made Open Banking data infrastructure. eToro gets instant multi-bank connectivity and payment initiation across Europe without building from scratch. ING pedigree ensures regulatory robustness.',
+      whyTier: 'Tier 3 — Good Open Banking tech, but unclear ownership / spin-out structure from ING makes it a less clean acquisition target. Moneyhub offers similar capabilities with clearer corporate structure.'
+    },
+    {
+      name: 'YNAB', url: 'https://www.youneedabudget.com', region: 'Global (US-centric)', services: 'Budgeting, planning',
+      license: 'None', users: '~1M+', usersSort: 1000000, team: '~100', teamSort: 100, valuation: '$50–100M', valSort: 75,
+      tier: 3, fit: 'Behavioral finance', geography: 'Global (US-focused)', gains: 'Behavioral model only', notes: 'US-centric, no Open Banking, weak EU fit',
+      founded: '2004', hq: 'Lehi, Utah, USA (fully remote)', regulation: 'None required',
+      keyFeatures: ['Zero-based budgeting methodology', 'Automatic bank sync (strongest with US banks)', 'Goal tracking with flexible targets', 'Loan calculator & debt paydown tools', 'Subscription sharing (up to 6 people)', 'Budget-first / manual discipline approach (vs data-first like Emma)', 'No native PSD2/Open Banking integration in EU/UK — weak bank connections outside US'],
+      funding: 'Profitable subscription business (~$14.99/month). Estimated $50–100M valuation based on ~1M subscribers. Strong community and brand loyalty.',
+      whyEtoro: 'Strong behavioral finance methodology, but primarily US-focused. No Open Banking integration in EU/UK — users rely on manual imports. Budget-first philosophy (discipline-based) vs the data-first approach (automatic aggregation + insights) of European competitors like Emma. Lower strategic fit for eToro\'s UK/EU expansion.',
+      whyTier: 'Tier 3 — US-centric with no Open Banking in EU/UK. No licensing value. $50–100M valuation is high for what it adds to eToro\'s UK/EU strategy. Behavioral model only — doesn\'t provide the data-first infrastructure eToro needs.'
+    },
+    {
+      name: 'PocketSmith', url: 'https://www.pocketsmith.com', region: 'Global', services: 'Forecasting, dashboards',
+      license: 'None', users: '~100K+', usersSort: 100000, team: '~30', teamSort: 30, valuation: '$10–25M', valSort: 17,
+      tier: 3, fit: 'Niche analytics', geography: 'Global', gains: 'Advanced analytics', notes: 'Niche product, weak aggregation',
+      founded: '2008', hq: 'New Zealand (global user base)', regulation: 'None required',
+      keyFeatures: ['Cash flow projections up to 60 years ahead', 'What-if scenario modeling', 'Budget calendar with scheduled bills', 'Custom budget periods (daily/weekly/quarterly)', 'Connections to 12,000+ financial institutions', 'Multi-currency support', 'Desktop-first + mobile companion app'],
+      funding: 'Bootstrapped. Operates profitably serving users in 195 countries. Plans from free to $39.95/month.',
+      whyEtoro: 'Unmatched forecasting and scenario-planning capabilities, but too small and niche for meaningful strategic impact. Weak aggregation and no licensing value.',
+      whyTier: 'Tier 3 — Niche forecasting product with no licensing, weak aggregation, and limited user base (~100K). Too small for meaningful strategic impact. Interesting analytics but doesn\'t move the needle for eToro.'
+    },
+    {
+      name: 'DragonPass', url: 'https://www.dragonpass.com', region: 'Global', services: 'Lounge, perks',
+      license: 'N/A', users: '40M+', usersSort: 40000000, team: '200+', teamSort: 200, valuation: '$100M+ (est.)', valSort: 100,
+      tier: 3, fit: 'Premium layer', geography: 'Global', gains: 'Premium differentiation', notes: '>$100M, not core financial service',
+      founded: '2005', hq: 'London, UK / Hong Kong', regulation: 'N/A (travel benefits)',
+      keyFeatures: ['1,400+ airport lounges worldwide', 'World\'s largest aggregated Fast Track security lanes', 'Fitness centre access (thousands of gyms)', 'Airport dining, spa & wellness offers', 'Premium airport transfers in 70+ countries', 'eSIM & travel wellbeing services', 'API/SDK for seamless banking app integration'],
+      funding: '$1B+ platform valuation. Revenue-led, partnership-first growth over 20 years. Powers loyalty for 37 of the world\'s top 50 banks. Partners include Visa, Mastercard, Revolut.',
+      whyEtoro: 'Instant premium tier differentiation, but >$100M valuation and not a core financial service. Better pursued as a partnership than an acquisition.',
+      whyTier: 'Tier 3 — Valuation >$100M and not a core financial service. Premium perks layer is nice-to-have but doesn\'t add banking, aggregation, or licensing capabilities. Better pursued as a partnership than an acquisition.'
+    }
+  ];
+
+  // ── Active filters state ──
+  const activeFilters = {};
+  let displayOrder = companies.map((_, i) => i);
+
+  // ── Populate filter dropdowns ──
+  function populateFilters() {
+    document.querySelectorAll('.col-filter').forEach(sel => {
+      const key = sel.dataset.filterCol;
+      const vals = [...new Set(companies.map(c => String(c[key])))].sort();
+      vals.forEach(v => {
+        const opt = document.createElement('option');
+        opt.value = v; opt.textContent = key === 'tier' ? 'Tier ' + v : v;
+        sel.appendChild(opt);
+      });
+      sel.addEventListener('change', () => {
+        if (sel.value) activeFilters[key] = sel.value;
+        else delete activeFilters[key];
+        renderMainTable(currentSort.col, currentSort.dir);
+      });
+    });
+  }
+
+  let currentSort = { col: undefined, dir: undefined };
+
+  // ── Render Main Table ──
+  function renderMainTable(sortCol, sortDir) {
+    currentSort = { col: sortCol, dir: sortDir };
+    const tbody = document.getElementById('mainTableBody');
+    if (!tbody) return;
+    let data = displayOrder.map(i => companies[i]);
+
+    Object.keys(activeFilters).forEach(key => {
+      data = data.filter(c => String(c[key]) === activeFilters[key]);
+    });
+
+    if (sortCol !== undefined) {
+      data.sort((a, b) => {
+        let va, vb;
+        const cols = ['tier','name','region','services','license','users','teamSort','valSort','gains'];
+        const key = cols[sortCol];
+        va = a[key]; vb = b[key];
+        if (typeof va === 'string') { va = va.toLowerCase(); vb = vb.toLowerCase(); }
+        if (va < vb) return sortDir === 'asc' ? -1 : 1;
+        if (va > vb) return sortDir === 'asc' ? 1 : -1;
+        return 0;
+      });
+    }
+    tbody.innerHTML = '';
+    data.forEach(c => {
+      const tr = document.createElement('tr');
+      tr.className = 'data-row';
+      tr.draggable = true;
+      tr.dataset.companyName = c.name;
+      const tierColors = {1:'#22c55e', 2:'#eab308', 3:'#ef4444'};
+      const tierLabels = {1:'Tier 1', 2:'Tier 2', 3:'Tier 3'};
+      tr.innerHTML = `
+        <td><span style="color:${tierColors[c.tier]};font-weight:700;font-size:11px;">${tierLabels[c.tier]}</span></td>
+        <td><span class="drag-handle" title="Drag to reorder">⠿</span><span class="expand-icon">›</span><a href="${c.url}" target="_blank" class="company-link" onclick="event.stopPropagation()">${c.name} <span class="link-icon">↗</span></a></td>
+        <td>${c.region}</td>
+        <td>${c.services}</td>
+        <td>${c.license}</td>
+        <td>${c.users}</td>
+        <td>${c.team}</td>
+        <td>${c.valuation}</td>
+        <td>${c.gains}</td>`;
+      tr.addEventListener('click', (e) => {
+        if (e.target.closest('.drag-handle')) return;
+        toggleDetail(tr, c, 9);
+      });
+      initDragRow(tr);
+      tbody.appendChild(tr);
+    });
+  }
+
+  // ── Drag-and-drop reordering ──
+  let dragSrcRow = null;
+
+  function initDragRow(tr) {
+    tr.addEventListener('dragstart', function(e) {
+      dragSrcRow = this;
+      this.classList.add('dragging');
+      e.dataTransfer.effectAllowed = 'move';
+      e.dataTransfer.setData('text/plain', this.dataset.companyName);
+    });
+
+    tr.addEventListener('dragend', function() {
+      this.classList.remove('dragging');
+      document.querySelectorAll('.drag-over-top, .drag-over-bottom').forEach(el => {
+        el.classList.remove('drag-over-top', 'drag-over-bottom');
+      });
+    });
+
+    tr.addEventListener('dragover', function(e) {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move';
+      if (this === dragSrcRow || !this.classList.contains('data-row')) return;
+      const rect = this.getBoundingClientRect();
+      const midY = rect.top + rect.height / 2;
+      this.classList.remove('drag-over-top', 'drag-over-bottom');
+      if (e.clientY < midY) this.classList.add('drag-over-top');
+      else this.classList.add('drag-over-bottom');
+    });
+
+    tr.addEventListener('dragleave', function() {
+      this.classList.remove('drag-over-top', 'drag-over-bottom');
+    });
+
+    tr.addEventListener('drop', function(e) {
+      e.preventDefault();
+      this.classList.remove('drag-over-top', 'drag-over-bottom');
+      if (this === dragSrcRow || !dragSrcRow) return;
+      const srcName = dragSrcRow.dataset.companyName;
+      const tgtName = this.dataset.companyName;
+      const srcIdx = displayOrder.findIndex(i => companies[i].name === srcName);
+      const tgtIdx = displayOrder.findIndex(i => companies[i].name === tgtName);
+      if (srcIdx === -1 || tgtIdx === -1) return;
+      const [moved] = displayOrder.splice(srcIdx, 1);
+      const rect = this.getBoundingClientRect();
+      const insertAfter = e.clientY > rect.top + rect.height / 2;
+      let newTgtIdx = displayOrder.findIndex(i => companies[i].name === tgtName);
+      if (insertAfter) newTgtIdx++;
+      displayOrder.splice(newTgtIdx, 0, moved);
+      renderMainTable(currentSort.col, currentSort.dir);
+    });
+  }
+
+  // ── Toggle Expandable Detail Row ──
+  function toggleDetail(tr, company, colspan) {
+    const existing = tr.nextElementSibling;
+    if (existing && existing.classList.contains('detail-row')) {
+      existing.remove();
+      tr.classList.remove('expanded');
+      return;
+    }
+    document.querySelectorAll('.detail-row').forEach(r => {
+      r.previousElementSibling.classList.remove('expanded');
+      r.remove();
+    });
+    tr.classList.add('expanded');
+    const detailTr = document.createElement('tr');
+    detailTr.className = 'detail-row visible';
+    detailTr.innerHTML = `<td colspan="${colspan}">
+      <div class="detail-panel">
+        <div class="detail-section">
+          <h5>Company Profile</h5>
+          <ul>
+            <li><strong style="color:#fff;">Founded:</strong> ${company.founded}</li>
+            <li><strong style="color:#fff;">HQ:</strong> ${company.hq}</li>
+            <li><strong style="color:#fff;">Regulation:</strong> ${company.regulation}</li>
+            <li><strong style="color:#fff;">Valuation:</strong> ${company.valuation}</li>
+          </ul>
+          <p style="margin-top:12px; font-size:12px; color:#64748b; line-height:1.6;">${company.funding}</p>
+          <a href="${company.url}" target="_blank" class="detail-link">${company.url.replace('https://','').replace('http://','').replace(/\/$/,'')} ↗</a>
+        </div>
+        <div class="detail-section">
+          <h5>Key Features & Capabilities</h5>
+          <ul>${company.keyFeatures.map(f => '<li>' + f + '</li>').join('')}</ul>
+        </div>
+        <div class="detail-section">
+          <h5>Why This Matters for eToro</h5>
+          <p style="color:#cbd5e1; line-height:1.8;">${company.whyEtoro}</p>
+        </div>
+        <div class="detail-section" style="border-top:1px solid rgba(255,255,255,0.06); padding-top:16px;">
+          <h5 style="color:${({1:'#22c55e',2:'#eab308',3:'#ef4444'})[company.tier]};">Why ${({1:'Tier 1 — High Priority',2:'Tier 2 — Conditional',3:'Tier 3 — Low Priority'})[company.tier]}</h5>
+          <p style="color:#cbd5e1; line-height:1.8;">${company.whyTier}</p>
+        </div>
+      </div>
+    </td>`;
+    tr.after(detailTr);
+  }
+
+  // ── Column Sorting ──
+  function initSorting(tableId, renderFn) {
+    const table = document.getElementById(tableId);
+    if (!table) return;
+    const headers = document.querySelectorAll('#' + tableId + ' thead tr:first-child th');
+    let sortState = { col: null, dir: null };
+    headers.forEach(th => {
+      if (th.dataset.col === undefined) return;
+      th.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const col = parseInt(th.dataset.col);
+        if (sortState.col === col) {
+          sortState.dir = sortState.dir === 'asc' ? 'desc' : 'asc';
+        } else {
+          sortState = { col, dir: 'asc' };
+        }
+        headers.forEach(h => { h.classList.remove('sorted'); const si = h.querySelector('.sort-icon'); if (si) si.textContent = '▲▼'; });
+        th.classList.add('sorted');
+        th.querySelector('.sort-icon').textContent = sortState.dir === 'asc' ? '▲' : '▼';
+        renderFn(sortState.col, sortState.dir);
+      });
+    });
+  }
+
+  populateFilters();
+  renderMainTable();
+  initSorting('mainTable', renderMainTable);
+
+  // ── Slide Navigation ──
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+  const totalSlides = slides.length;
+
+  function showSlide(index) {
+    slides.forEach(s => s.classList.remove('active'));
+    slides[index].classList.add('active');
+    document.getElementById('slideNumber').textContent = (index + 1) + ' / ' + totalSlides;
+    document.getElementById('progressBar').style.width = ((index + 1) / totalSlides * 100) + '%';
+  }
+
+  function changeSlide(direction) {
+    currentSlide = Math.max(0, Math.min(totalSlides - 1, currentSlide + direction));
+    showSlide(currentSlide);
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
+      const active = document.activeElement;
+      if (active && active.closest('.slide-content-scroll')) return;
+      e.preventDefault();
+      changeSlide(1);
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      const active = document.activeElement;
+      if (active && active.closest('.slide-content-scroll')) return;
+      e.preventDefault();
+      changeSlide(-1);
+    } else if (e.key === 'Home') {
+      currentSlide = 0;
+      showSlide(0);
+    } else if (e.key === 'End') {
+      currentSlide = totalSlides - 1;
+      showSlide(currentSlide);
+    }
+  });
+
+  let touchStartX = 0;
+  document.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
+  document.addEventListener('touchend', e => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) changeSlide(diff > 0 ? 1 : -1);
+  });
+
+  showSlide(0);
+</script>
+
+</body>
+</html>
