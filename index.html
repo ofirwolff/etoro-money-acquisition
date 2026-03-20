@@ -1595,22 +1595,31 @@
       }
 
       const fileData = await getRes.json();
-      let content = atob(fileData.content.replace(/\n/g, ''));
+      const rawBytes = Uint8Array.from(atob(fileData.content.replace(/\n/g, '')), c => c.charCodeAt(0));
+      let content = new TextDecoder('utf-8').decode(rawBytes);
 
       status.textContent = 'Applying changes...';
 
+      let replacements = 0;
       for (const [companyName, newTier] of Object.entries(pendingChanges)) {
-        const escapedName = companyName.replace(/'/g, "\\'");
+        const escapedName = companyName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         const re = new RegExp(
           `(name:\\s*'${escapedName}'[^}]*?tier:\\s*)\\d`,
           's'
         );
+        const before = content;
         content = content.replace(re, `$1${newTier}`);
+        if (content !== before) replacements++;
       }
+
+      if (replacements === 0) throw new Error('No matching tier values found in source');
 
       status.textContent = 'Committing...';
 
-      const encoded = btoa(unescape(encodeURIComponent(content)));
+      const utf8Bytes = new TextEncoder().encode(content);
+      let binary = '';
+      for (let i = 0; i < utf8Bytes.length; i++) binary += String.fromCharCode(utf8Bytes[i]);
+      const encoded = btoa(binary);
       const summary = Object.entries(pendingChanges)
         .map(([n, t]) => `${n} Ã¢ÂÂ Tier ${t}`)
         .join(', ');
