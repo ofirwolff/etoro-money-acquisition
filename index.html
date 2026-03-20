@@ -849,67 +849,105 @@
         <div class="badge" style="margin-top:24px;">Confidential — March 2026</div>
       </div>
       <div style="flex-shrink:0;">
-        <svg width="480" height="480" viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 0 40px rgba(59,130,246,0.12));">
+        <svg width="560" height="560" viewBox="0 0 560 560" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 0 48px rgba(59,130,246,0.15));">
           <defs>
             <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.10"/>
+              <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.12"/>
               <stop offset="100%" stop-color="#0a0a0a" stop-opacity="0"/>
             </radialGradient>
+            <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.35"/>
+              <stop offset="100%" stop-color="#64748b" stop-opacity="0.20"/>
+            </linearGradient>
           </defs>
-          <rect width="480" height="480" fill="none"/>
-          <circle cx="240" cy="240" r="220" fill="url(#bgGlow)"/>
-          <circle cx="240" cy="240" r="180" fill="none" stroke="rgba(59,130,246,0.09)" stroke-width="1" stroke-dasharray="6 4"/>
-          <circle cx="240" cy="240" r="130" fill="none" stroke="rgba(59,130,246,0.06)" stroke-width="1" stroke-dasharray="4 6"/>
+          <rect width="560" height="560" fill="none"/>
+          <circle cx="280" cy="280" r="260" fill="url(#bgGlow)"/>
+          <circle cx="280" cy="280" r="210" fill="none" stroke="rgba(59,130,246,0.12)" stroke-width="1" stroke-dasharray="6 4"/>
+          <circle cx="280" cy="280" r="152" fill="none" stroke="rgba(59,130,246,0.08)" stroke-width="1" stroke-dasharray="4 6"/>
+
+          <!-- Connecting lines (brighter, thicker) -->
+          <line x1="280" y1="98" x2="280" y2="204" stroke="rgba(100,149,237,0.30)" stroke-width="1.5" stroke-dasharray="4 4"/>
+          <line x1="438" y1="172" x2="348" y2="246" stroke="rgba(100,149,237,0.30)" stroke-width="1.5" stroke-dasharray="4 4"/>
+          <line x1="444" y1="398" x2="350" y2="316" stroke="rgba(100,149,237,0.30)" stroke-width="1.5" stroke-dasharray="4 4"/>
+          <line x1="280" y1="462" x2="280" y2="356" stroke="rgba(100,149,237,0.30)" stroke-width="1.5" stroke-dasharray="4 4"/>
+          <line x1="116" y1="398" x2="210" y2="316" stroke="rgba(100,149,237,0.30)" stroke-width="1.5" stroke-dasharray="4 4"/>
+          <line x1="122" y1="172" x2="212" y2="246" stroke="rgba(100,149,237,0.30)" stroke-width="1.5" stroke-dasharray="4 4"/>
+
           <!-- Center hub -->
-          <circle cx="240" cy="240" r="66" fill="rgba(59,130,246,0.06)" stroke="rgba(59,130,246,0.30)" stroke-width="2"/>
-          <text x="240" y="232" text-anchor="middle" fill="#60a5fa" font-size="18" font-weight="700" font-family="Inter,system-ui,sans-serif" letter-spacing="1">eToro</text>
-          <text x="240" y="254" text-anchor="middle" fill="rgba(96,165,250,0.55)" font-size="13" font-family="Inter,system-ui,sans-serif">SuperApp</text>
-          <!-- Spend (top) -->
-          <circle cx="240" cy="42" r="42" fill="rgba(59,130,246,0.04)" stroke="rgba(148,163,184,0.22)" stroke-width="1.5"/>
-          <g transform="translate(240,34)" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="-12" y="-8" width="24" height="16" rx="2.5"/><line x1="-12" y1="-3" x2="12" y2="-3"/><line x1="-6" y1="2" x2="0" y2="2"/>
+          <circle cx="280" cy="280" r="76" fill="rgba(59,130,246,0.07)" stroke="rgba(59,130,246,0.35)" stroke-width="2.5"/>
+          <text x="280" y="270" text-anchor="middle" fill="#60a5fa" font-size="26" font-weight="700" font-family="Inter,system-ui,sans-serif" letter-spacing="1.5">eToro</text>
+          <text x="280" y="298" text-anchor="middle" fill="rgba(96,165,250,0.60)" font-size="16" font-family="Inter,system-ui,sans-serif" font-weight="500">SuperApp</text>
+
+          <!-- Spend (top) — Credit Card icon -->
+          <circle cx="280" cy="50" r="48" fill="rgba(59,130,246,0.05)" stroke="rgba(148,163,184,0.30)" stroke-width="1.5"/>
+          <g transform="translate(280,40)" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="-14" y="-10" width="28" height="20" rx="3"/>
+            <line x1="-14" y1="-3" x2="14" y2="-3"/>
+            <line x1="-8" y1="4" x2="-2" y2="4"/>
+            <line x1="2" y1="4" x2="4" y2="4"/>
           </g>
-          <text x="240" y="62" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="12" font-weight="500" font-family="Inter,system-ui,sans-serif">Spend</text>
-          <line x1="240" y1="84" x2="240" y2="174" stroke="rgba(148,163,184,0.12)" stroke-width="1" stroke-dasharray="3 3"/>
-          <!-- Save (top-right) -->
-          <circle cx="406" cy="140" r="42" fill="rgba(59,130,246,0.04)" stroke="rgba(148,163,184,0.22)" stroke-width="1.5"/>
-          <g transform="translate(406,132)" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="-11" y="-9" width="22" height="18" rx="1"/><line x1="-11" y1="-4" x2="11" y2="-4"/><line x1="0" y1="-9" x2="0" y2="9"/><circle cx="-5" cy="3" r="2" fill="rgba(255,255,255,0.3)"/><circle cx="5" cy="3" r="2" fill="rgba(255,255,255,0.3)"/>
+          <text x="280" y="78" text-anchor="middle" fill="rgba(255,255,255,0.92)" font-size="15" font-weight="600" font-family="Inter,system-ui,sans-serif">Spend</text>
+
+          <!-- Save (top-right) — Piggy bank / Wallet icon -->
+          <circle cx="468" cy="157" r="48" fill="rgba(59,130,246,0.05)" stroke="rgba(148,163,184,0.30)" stroke-width="1.5"/>
+          <g transform="translate(468,147)" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M-12,-8 L12,-8 C13.1,-8 14,-7.1 14,-6 L14,6 C14,7.1 13.1,8 12,8 L-12,8 C-13.1,8 -14,7.1 -14,6 L-14,-6 C-14,-7.1 -13.1,-8 -12,-8 Z"/>
+            <line x1="14" y1="-2" x2="8" y2="-2"/>
+            <line x1="14" y1="2" x2="8" y2="2"/>
+            <circle cx="10" cy="0" r="1.5" fill="rgba(255,255,255,0.5)"/>
+            <path d="M-6,-12 L-2,-8 M2,-12 L-2,-8"/>
           </g>
-          <text x="406" y="160" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="12" font-weight="500" font-family="Inter,system-ui,sans-serif">Save</text>
-          <line x1="376" y1="164" x2="302" y2="214" stroke="rgba(148,163,184,0.12)" stroke-width="1" stroke-dasharray="3 3"/>
-          <!-- Invest (bottom-right) -->
-          <circle cx="412" cy="348" r="42" fill="rgba(59,130,246,0.04)" stroke="rgba(148,163,184,0.22)" stroke-width="1.5"/>
-          <g transform="translate(412,340)" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="-10,8 -3,-2 3,4 10,-8"/><line x1="5" y1="-8" x2="10" y2="-8"/><line x1="10" y1="-8" x2="10" y2="-3"/>
+          <text x="468" y="185" text-anchor="middle" fill="rgba(255,255,255,0.92)" font-size="15" font-weight="600" font-family="Inter,system-ui,sans-serif">Save</text>
+
+          <!-- Invest (bottom-right) — Trending up icon -->
+          <circle cx="474" cy="408" r="48" fill="rgba(59,130,246,0.05)" stroke="rgba(148,163,184,0.30)" stroke-width="1.5"/>
+          <g transform="translate(474,398)" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="-12,8 -4,0 2,6 12,-6"/>
+            <polyline points="5,-6 12,-6 12,1"/>
           </g>
-          <text x="412" y="368" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="12" font-weight="500" font-family="Inter,system-ui,sans-serif">Invest</text>
-          <line x1="380" y1="326" x2="304" y2="266" stroke="rgba(148,163,184,0.12)" stroke-width="1" stroke-dasharray="3 3"/>
-          <!-- Manage (top-left) -->
-          <circle cx="74" cy="140" r="42" fill="rgba(59,130,246,0.04)" stroke="rgba(148,163,184,0.22)" stroke-width="1.5"/>
-          <g transform="translate(74,132)" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="-10" y="-7" width="20" height="14" rx="1.5"/><line x1="-5" y1="7" x2="-5" y2="2"/><line x1="0" y1="7" x2="0" y2="-2"/><line x1="5" y1="7" x2="5" y2="0"/>
+          <text x="474" y="436" text-anchor="middle" fill="rgba(255,255,255,0.92)" font-size="15" font-weight="600" font-family="Inter,system-ui,sans-serif">Invest</text>
+
+          <!-- Manage (top-left) — Sliders / dashboard icon -->
+          <circle cx="92" cy="157" r="48" fill="rgba(59,130,246,0.05)" stroke="rgba(148,163,184,0.30)" stroke-width="1.5"/>
+          <g transform="translate(92,147)" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="-10" y1="-7" x2="10" y2="-7"/>
+            <line x1="-10" y1="0" x2="10" y2="0"/>
+            <line x1="-10" y1="7" x2="10" y2="7"/>
+            <circle cx="4" cy="-7" r="2.5" fill="rgba(15,15,15,1)" stroke="rgba(255,255,255,0.85)"/>
+            <circle cx="-4" cy="0" r="2.5" fill="rgba(15,15,15,1)" stroke="rgba(255,255,255,0.85)"/>
+            <circle cx="2" cy="7" r="2.5" fill="rgba(15,15,15,1)" stroke="rgba(255,255,255,0.85)"/>
           </g>
-          <text x="74" y="160" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="12" font-weight="500" font-family="Inter,system-ui,sans-serif">Manage</text>
-          <line x1="104" y1="164" x2="178" y2="214" stroke="rgba(148,163,184,0.12)" stroke-width="1" stroke-dasharray="3 3"/>
-          <!-- Trade (bottom-left) -->
-          <circle cx="68" cy="348" r="42" fill="rgba(59,130,246,0.04)" stroke="rgba(148,163,184,0.22)" stroke-width="1.5"/>
-          <g transform="translate(68,340)" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="-10,6 -4,-2 2,4 10,-6"/><polyline points="-10,-4 -4,4 2,-2 10,6"/>
+          <text x="92" y="185" text-anchor="middle" fill="rgba(255,255,255,0.92)" font-size="15" font-weight="600" font-family="Inter,system-ui,sans-serif">Manage</text>
+
+          <!-- Trade (bottom-left) — Candlestick chart icon -->
+          <circle cx="86" cy="408" r="48" fill="rgba(59,130,246,0.05)" stroke="rgba(148,163,184,0.30)" stroke-width="1.5"/>
+          <g transform="translate(86,398)" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="-8" y1="-10" x2="-8" y2="10"/>
+            <rect x="-11" y="-4" width="6" height="8" rx="1" fill="rgba(255,255,255,0.15)"/>
+            <line x1="0" y1="-8" x2="0" y2="10"/>
+            <rect x="-3" y="-2" width="6" height="6" rx="1" fill="rgba(255,255,255,0.15)"/>
+            <line x1="8" y1="-10" x2="8" y2="8"/>
+            <rect x="5" y="-6" width="6" height="9" rx="1" fill="rgba(255,255,255,0.15)"/>
           </g>
-          <text x="68" y="368" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="12" font-weight="500" font-family="Inter,system-ui,sans-serif">Trade</text>
-          <line x1="100" y1="326" x2="176" y2="266" stroke="rgba(148,163,184,0.12)" stroke-width="1" stroke-dasharray="3 3"/>
-          <!-- Banking (bottom) -->
-          <circle cx="240" cy="438" r="42" fill="rgba(59,130,246,0.04)" stroke="rgba(148,163,184,0.22)" stroke-width="1.5"/>
-          <g transform="translate(240,430)" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="-11" y="-4" width="22" height="12" rx="2"/><circle cx="0" cy="2" r="3"/><line x1="0" y1="-1" x2="0" y2="2"/>
+          <text x="86" y="436" text-anchor="middle" fill="rgba(255,255,255,0.92)" font-size="15" font-weight="600" font-family="Inter,system-ui,sans-serif">Trade</text>
+
+          <!-- Banking (bottom) — Bank building icon -->
+          <circle cx="280" cy="510" r="48" fill="rgba(59,130,246,0.05)" stroke="rgba(148,163,184,0.30)" stroke-width="1.5"/>
+          <g transform="translate(280,500)" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M0,-12 L14,-4 L-14,-4 Z"/>
+            <line x1="-10" y1="-4" x2="-10" y2="6"/>
+            <line x1="-4" y1="-4" x2="-4" y2="6"/>
+            <line x1="4" y1="-4" x2="4" y2="6"/>
+            <line x1="10" y1="-4" x2="10" y2="6"/>
+            <line x1="-14" y1="6" x2="14" y2="6"/>
+            <line x1="-14" y1="10" x2="14" y2="10"/>
           </g>
-          <text x="240" y="458" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="12" font-weight="500" font-family="Inter,system-ui,sans-serif">Banking</text>
-          <line x1="240" y1="396" x2="240" y2="306" stroke="rgba(148,163,184,0.12)" stroke-width="1" stroke-dasharray="3 3"/>
+          <text x="280" y="538" text-anchor="middle" fill="rgba(255,255,255,0.92)" font-size="15" font-weight="600" font-family="Inter,system-ui,sans-serif">Banking</text>
+
           <!-- Animated pulse -->
-          <circle cx="240" cy="240" r="66" fill="none" stroke="rgba(59,130,246,0.18)" stroke-width="1">
-            <animate attributeName="r" values="66;94;66" dur="4s" repeatCount="indefinite"/>
-            <animate attributeName="stroke-opacity" values="0.18;0;0.18" dur="4s" repeatCount="indefinite"/>
+          <circle cx="280" cy="280" r="76" fill="none" stroke="rgba(59,130,246,0.20)" stroke-width="1.5">
+            <animate attributeName="r" values="76;110;76" dur="4s" repeatCount="indefinite"/>
+            <animate attributeName="stroke-opacity" values="0.20;0;0.20" dur="4s" repeatCount="indefinite"/>
           </circle>
         </svg>
       </div>
