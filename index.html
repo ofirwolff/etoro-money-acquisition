@@ -820,6 +820,76 @@
     margin-bottom: 32px;
   }
 
+  /* Live-edit controls */
+  .tier-select {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.20);
+    color: inherit;
+    font: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+  }
+  .tier-select:focus { border-color: #3b82f6; }
+  .tier-select option { background: #1e1e2e; color: #e2e8f0; }
+
+  #publishBar {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15,15,25,0.95);
+    border: 1px solid rgba(59,130,246,0.4);
+    border-radius: 12px;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    z-index: 9999;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  #publishBar.hidden { opacity: 0; pointer-events: none; transform: translateX(-50%) translateY(20px); }
+  #publishBar .change-count {
+    font-size: 13px;
+    color: #94a3b8;
+  }
+  #publishBar .change-count strong {
+    color: #60a5fa;
+  }
+  #publishBtn {
+    background: #3b82f6;
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  #publishBtn:hover { background: #2563eb; }
+  #publishBtn:disabled { opacity: 0.5; cursor: not-allowed; }
+  #discardBtn {
+    background: transparent;
+    color: #94a3b8;
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  #discardBtn:hover { color: #ef4444; border-color: rgba(239,68,68,0.3); }
+  #publishStatus {
+    font-size: 12px;
+    color: #94a3b8;
+  }
+
   /* Print styles */
   @media print {
     body { background: #fff; color: #1a1a2e; }
@@ -1255,7 +1325,11 @@
       const tierColors = {1:'#22c55e', 2:'#eab308', 3:'#ef4444'};
       const tierLabels = {1:'Tier 1', 2:'Tier 2', 3:'Tier 3'};
       tr.innerHTML = `
-        <td><span style="color:${tierColors[c.tier]};font-weight:700;font-size:11px;">${tierLabels[c.tier]}</span></td>
+        <td><select class="tier-select" style="color:${tierColors[c.tier]}" data-company="${c.name}" onchange="handleTierChange(this)" onclick="event.stopPropagation()">
+          <option value="1" ${c.tier===1?'selected':''} style="color:#22c55e">Tier 1</option>
+          <option value="2" ${c.tier===2?'selected':''} style="color:#eab308">Tier 2</option>
+          <option value="3" ${c.tier===3?'selected':''} style="color:#ef4444">Tier 3</option>
+        </select></td>
         <td><span class="drag-handle" title="Drag to reorder">⠿</span><span class="expand-icon">›</span><a href="${c.url}" target="_blank" class="company-link" onclick="event.stopPropagation()">${c.name} <span class="link-icon">↗</span></a></td>
         <td>${c.region}</td>
         <td>${c.services}</td>
@@ -1443,7 +1517,142 @@
   });
 
   showSlide(0);
+
+  // ── Live Edit + Publish System ──
+  const REPO_OWNER = 'ofirwolff';
+  const REPO_NAME = 'etoro-money-acquisition';
+  const FILE_PATH = 'index.html';
+  const pendingChanges = {};
+
+  function handleTierChange(sel) {
+    const companyName = sel.dataset.company;
+    const newTier = parseInt(sel.value);
+    const company = companies.find(c => c.name === companyName);
+    if (!company) return;
+
+    const tierColors = {1:'#22c55e', 2:'#eab308', 3:'#ef4444'};
+    sel.style.color = tierColors[newTier];
+    company.tier = newTier;
+    pendingChanges[companyName] = newTier;
+    updatePublishBar();
+  }
+
+  function updatePublishBar() {
+    const bar = document.getElementById('publishBar');
+    const count = Object.keys(pendingChanges).length;
+    if (count === 0) {
+      bar.classList.add('hidden');
+    } else {
+      bar.classList.remove('hidden');
+      document.getElementById('changeCount').innerHTML =
+        `<strong>${count}</strong> change${count > 1 ? 's' : ''} pending`;
+    }
+  }
+
+  function discardChanges() {
+    Object.keys(pendingChanges).forEach(name => {
+      delete pendingChanges[name];
+    });
+    renderMainTable(currentSort.col, currentSort.dir);
+    updatePublishBar();
+  }
+
+  async function publishChanges() {
+    const btn = document.getElementById('publishBtn');
+    const status = document.getElementById('publishStatus');
+    const changes = Object.keys(pendingChanges);
+    if (changes.length === 0) return;
+
+    let token = localStorage.getItem('gh_pat');
+    if (!token) {
+      token = prompt(
+        'To publish changes live, enter a GitHub Personal Access Token\\n' +
+        '(needs "repo" scope — create one at github.com/settings/tokens):'
+      );
+      if (!token) return;
+      localStorage.setItem('gh_pat', token.trim());
+    }
+
+    btn.disabled = true;
+    status.textContent = 'Fetching current file...';
+
+    try {
+      const headers = {
+        'Authorization': 'token ' + token,
+        'Accept': 'application/vnd.github+json'
+      };
+
+      const getRes = await fetch(
+        `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}`,
+        { headers }
+      );
+      if (!getRes.ok) {
+        if (getRes.status === 401) {
+          localStorage.removeItem('gh_pat');
+          throw new Error('Invalid token — removed. Try again.');
+        }
+        throw new Error('Failed to fetch file: ' + getRes.status);
+      }
+
+      const fileData = await getRes.json();
+      let content = atob(fileData.content.replace(/\n/g, ''));
+
+      status.textContent = 'Applying changes...';
+
+      for (const [companyName, newTier] of Object.entries(pendingChanges)) {
+        const escapedName = companyName.replace(/'/g, "\\'");
+        const re = new RegExp(
+          `(name:\\s*'${escapedName}'[^}]*?tier:\\s*)\\d`,
+          's'
+        );
+        content = content.replace(re, `$1${newTier}`);
+      }
+
+      status.textContent = 'Committing...';
+
+      const encoded = btoa(unescape(encodeURIComponent(content)));
+      const summary = Object.entries(pendingChanges)
+        .map(([n, t]) => `${n} → Tier ${t}`)
+        .join(', ');
+
+      const putRes = await fetch(
+        `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}`,
+        {
+          method: 'PUT',
+          headers: { ...headers, 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            message: `Update tiers: ${summary}`,
+            content: encoded,
+            sha: fileData.sha
+          })
+        }
+      );
+
+      if (!putRes.ok) {
+        const err = await putRes.json();
+        throw new Error(err.message || 'Commit failed');
+      }
+
+      Object.keys(pendingChanges).forEach(k => delete pendingChanges[k]);
+      updatePublishBar();
+      status.textContent = 'Published! Live in ~30s.';
+      setTimeout(() => { status.textContent = ''; }, 4000);
+
+    } catch (e) {
+      status.textContent = 'Error: ' + e.message;
+      setTimeout(() => { status.textContent = ''; }, 5000);
+    } finally {
+      btn.disabled = false;
+    }
+  }
 </script>
+
+<div id="publishBar" class="hidden">
+  <span class="change-count" id="changeCount"></span>
+  <button id="publishBtn" onclick="publishChanges()">Publish Live</button>
+  <button id="discardBtn" onclick="discardChanges()">Discard</button>
+  <span id="publishStatus"></span>
+</div>
 
 </body>
 </html>
