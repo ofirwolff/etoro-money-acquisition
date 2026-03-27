@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>eToro Money – Additional Acquisition Targets</title>
+<style>
+  :root {
+    --etoro-green: #00c896;
+    --etoro-dark: #0d1421;
+    --etoro-card: #141d2e;
+    --etoro-border: #1e2d44;
+    --etoro-muted: #8b9ab8;
+    --etoro-light: #c8d4e8;
+    --etoro-white: #f0f4fc;
+    --tier1: #00c896;
+    --tier2: #4a9eff;
+    --tier3: #ff8c42;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--etoro-dark); color: var(--etoro-light); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; line-height: 1.5; }
+
+  /* HEADER */
+  .hero { background: linear-gradient(135deg, #0a1628 0%, #0d1e35 50%, #071320 100%); padding: 48px 40px 36px; border-bottom: 1px solid var(--etoro-border); position: relative; overflow: hidden; }
+  .hero::before { content:''; position:absolute; top:-60px; right:-60px; width:320px; height:320px; background: radial-gradient(circle, rgba(0,200,150,0.08) 0%, transparent 70%); }
+  .hero-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--etoro-green); margin-bottom: 10px; }
+  .hero h1 { font-size: 28px; font-weight: 700; color: var(--etoro-white); line-height: 1.2; margin-bottom: 8px; }
+  .hero-sub { color: var(--etoro-muted); font-size: 13px; margin-bottom: 24px; }
+  .hero-meta { display: flex; gap: 24px; flex-wrap: wrap; }
+  .hero-pill { background: rgba(0,200,150,0.1); border: 1px solid rgba(0,200,150,0.25); border-radius: 20px; padding: 5px 14px; font-size: 12px; color: var(--etoro-green); }
+
+  /* STRATEGIC CONTEXT */
+  .context { padding: 32px 40px; background: rgba(255,255,255,0.02); border-bottom: 1px solid var(--etoro-border); }
+  .context h2 { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--etoro-green); margin-bottom: 16px; }
+  .context p { color: var(--etoro-muted); font-size: 13px; max-width: 900px; line-height: 1.7; }
+
+  /* FILTERS + TABLE */
+  .table-section { padding: 32px 40px; }
+  .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
+  .section-title { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--etoro-green); }
+  .filters { display: flex; gap: 8px; flex-wrap: wrap; }
+  .filter-btn { background: var(--etoro-card); border: 1px solid var(--etoro-border); border-radius: 6px; padding: 5px 12px; font-size: 12px; color: var(--etoro-muted); cursor: pointer; transition: all 0.2s; }
+  .filter-btn:hover, .filter-btn.active { border-color: var(--etoro-green); color: var(--etoro-green); background: rgba(0,200,150,0.08); }
+
+  .table-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--etoro-border); }
+  table { width: 100%; border-collapse: collapse; }
+  thead tr { background: rgba(0,200,150,0.06); }
+  th { padding: 12px 14px; text-align: left; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--etoro-green); border-bottom: 1px solid var(--etoro-border); white-space: nowrap; cursor: pointer; user-select: none; }
+  th:hover { color: #fff; }
+  tbody tr { border-bottom: 1px solid var(--etoro-border); transition: background 0.15s; cursor: pointer; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: rgba(255,255,255,0.04); }
+  td { padding: 13px 14px; vertical-align: top; }
+  .co-name { font-weight: 600; color: var(--etoro-white); display: block; font-size: 13px; }
+  .co-url { font-size: 11px; color: var(--etoro-muted); }
+  .tag { display: inline-block; border-radius: 4px; padding: 2px 8px; font-size: 11px; font-weight: 500; margin: 1px; }
+  .tag-region { background: rgba(74,158,255,0.12); color: #4a9eff; border: 1px solid rgba(74,158,255,0.25); }
+  .tag-type { background: rgba(255,140,66,0.12); color: #ff8c42; border: 1px solid rgba(255,140,66,0.25); }
+  .val-badge { display: inline-block; background: rgba(0,200,150,0.1); border: 1px solid rgba(0,200,150,0.25); border-radius: 4px; padding: 2px 8px; font-size: 11px; color: var(--etoro-green); }
+  .users-text { font-size: 12px; color: var(--etoro-light); }
+  .team-text { font-size: 12px; color: var(--etoro-muted); }
+  .fit-text { font-size: 12px; color: var(--etoro-light); line-height: 1.5; max-width: 280px; }
+  .lic-text { font-size: 11px; color: var(--etoro-muted); max-width: 140px; }
+
+  /* DETAIL CARDS */
+  .detail-section { padding: 0 40px 40px; }
+  .detail-section h2 { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--etoro-green); margin-bottom: 20px; }
+  .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 20px; }
+  .card { background: var(--etoro-card); border: 1px solid var(--etoro-border); border-radius: 10px; padding: 22px; transition: border-color 0.2s; }
+  .card:hover { border-color: rgba(0,200,150,0.4); }
+  .card-head { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 14px; }
+  .card-name { font-size: 15px; font-weight: 700; color: var(--etoro-white); }
+  .card-url { font-size: 11px; color: var(--etoro-muted); margin-top: 2px; }
+  .card-val { font-size: 11px; background: rgba(0,200,150,0.1); border: 1px solid rgba(0,200,150,0.25); border-radius: 4px; padding: 3px 9px; color: var(--etoro-green); white-space: nowrap; }
+  .card-meta { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+  .card-section-label { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--etoro-muted); margin-bottom: 6px; margin-top: 12px; }
+  .card-services { display: flex; flex-wrap: wrap; gap: 5px; }
+  .svc-tag { background: rgba(255,255,255,0.05); border: 1px solid var(--etoro-border); border-radius: 4px; padding: 2px 8px; font-size: 11px; color: var(--etoro-light); }
+  .card-stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 12px; background: rgba(0,0,0,0.2); border-radius: 7px; padding: 10px; }
+  .stat { text-align: center; }
+  .stat-val { font-size: 13px; font-weight: 700; color: var(--etoro-white); }
+  .stat-label { font-size: 10px; color: var(--etoro-muted); margin-top: 2px; }
+  .card-rationale { margin-top: 12px; font-size: 12px; color: var(--etoro-muted); line-height: 1.6; border-top: 1px solid var(--etoro-border); padding-top: 12px; }
+  .card-rationale strong { color: var(--etoro-green); }
+
+  /* FOOTER */
+  .footer { padding: 24px 40px; border-top: 1px solid var(--etoro-border); text-align: center; font-size: 11px; color: var(--etoro-muted); }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .hero, .context, .table-section, .detail-section { padding-left: 20px; padding-right: 20px; }
+    .cards-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-label">eToro Money · Strategic M&A</div>
+  <h1>Additional Consumer-Facing Acquisition Targets<br>UK & EU — March 2026</h1>
+  <div class="hero-sub">Supplementary research: new targets identified via market scan to complement existing pipeline</div>
+  <div class="hero-meta">
+    <span class="hero-pill">7 New Targets</span>
+    <span class="hero-pill">UK & EU Markets</span>
+    <span class="hero-pill">Confidential</span>
+    <span class="hero-pill">March 2026</span>
+  </div>
+</div>
+
+<div class="context">
+  <h2>Strategic Context</h2>
+  <p>Building on eToro Money's existing acquisition pipeline (Emma, Plum, thinkmoney, Pockit, Meniga, Dreams, Yolt and others), this supplementary research surfaces additional UK and EU consumer fintech targets that can accelerate the SuperApp roadmap. The focus is on companies with proven credit products, open banking infrastructure, AI-driven financial management, and engaged consumer bases that would complement eToro's existing investing platform and deepen daily financial utility for users.</p>
+</div>
+
+<!-- SUMMARY TABLE -->
+<div class="table-section">
+  <div class="section-header">
+    <span class="section-title">02 — Summary Table</span>
+    <div class="filters">
+      <button class="filter-btn active" onclick="filterRows('all', this)">All</button>
+      <button class="filter-btn" onclick="filterRows('UK', this)">UK</button>
+      <button class="filter-btn" onclick="filterRows('EU', this)">EU</button>
+      <button class="filter-btn" onclick="filterRows('PFM', this)">PFM / Data</button>
+      <button class="filter-btn" onclick="filterRows('Credit', this)">Credit</button>
+      <button class="filter-btn" onclick="filterRows('Banking', this)">Banking</button>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table id="mainTable">
+      <thead>
+        <tr>
+          <th>Company</th>
+          <th>Region</th>
+          <th>Type</th>
+          <th>License</th>
+          <th>Est. Valuation</th>
+          <th>Users / Scale</th>
+          <th>Team</th>
+          <th>What eToro Gains</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-region="UK" data-type="PFM">
+          <td><span class="co-name">Moneyhub</span><span class="co-url">moneyhub.com</span></td>
+          <td><span class="tag tag-region">UK</span></td>
+          <td><span class="tag tag-type">PFM / Open Banking</span></td>
+          <td><span class="lic-text">FCA AISP & PISP; ISO 27001 certified</span></td>
+          <td><span class="val-badge">&lt;$100M (est.)</span></td>
+          <td><span class="users-text">B2B — banks, insurers, pension providers</span></td>
+          <td><span class="team-text">~100</span></td>
+          <td><span class="fit-text">API-first open finance platform; deepens data enrichment, consent management &amp; payment initiation for eToro Money</span></td>
+        </tr>
+        <tr data-region="UK" data-type="Credit">
+          <td><span class="co-name">Creditspring</span><span class="co-url">creditspring.co.uk</span></td>
+          <td><span class="tag tag-region">UK</span></td>
+          <td><span class="tag tag-type">Credit / Lending</span></td>
+          <td><span class="lic-text">FCA-regulated direct lender</span></td>
+          <td><span class="val-badge">&lt;$100M (est.)</span></td>
+          <td><span class="users-text">350,000+ active members (Dec 2025)</span></td>
+          <td><span class="team-text">~93</span></td>
+          <td><span class="fit-text">Subscription-finance credit model + financial education tools for near-prime users; immediate FCA lending licence &amp; £700M+ loan book</span></td>
+        </tr>
+        <tr data-region="UK" data-type="Credit">
+          <td><span class="co-name">Updraft</span><span class="co-url">updraft.com</span></td>
+          <td><span class="tag tag-region">UK</span></td>
+          <td><span class="tag tag-type">Credit / PFM</span></td>
+          <td><span class="lic-text">FCA-authorised lender</span></td>
+          <td><span class="val-badge">&lt;$150M (est.)</span></td>
+          <td><span class="users-text">500,000+ users; profitable 2024</span></td>
+          <td><span class="team-text">~38</span></td>
+          <td><span class="fit-text">Open-banking credit refinancing engine; behavioural analytics for debt-to-savings conversion — ideal bridge to eToro investing</span></td>
+        </tr>
+        <tr data-region="EU" data-type="Banking">
+          <td><span class="co-name">Monese</span><span class="co-url">monese.com</span></td>
+          <td><span class="tag tag-region">UK</span><span class="tag tag-region">EU</span></td>
+          <td><span class="tag tag-type">Digital Banking</span></td>
+          <td><span class="lic-text">UK EMI &amp; EU structures</span></td>
+          <td><span class="val-badge">&lt;$150M (est.)</span></td>
+          <td><span class="users-text">~2M users (est.)</span></td>
+          <td><span class="team-text">~200</span></td>
+          <td><span class="fit-text">Cross-border current accounts, debit cards &amp; remittances; dual UK/EU EMI passporting; large immigrant &amp; cross-border user base</span></td>
+        </tr>
+        <tr data-region="EU" data-type="Banking">
+          <td><span class="co-name">ZEN.com</span><span class="co-url">zen.com</span></td>
+          <td><span class="tag tag-region">EU</span><span class="tag tag-region">UK</span></td>
+          <td><span class="tag tag-type">Wallet / Cards</span></td>
+          <td><span class="lic-text">EMI (Lithuania + other EU)</span></td>
+          <td><span class="val-badge">&lt;$100M (est.)</span></td>
+          <td><span class="users-text">100k–1M (est.)</span></td>
+          <td><span class="team-text">~100+</span></td>
+          <td><span class="fit-text">Consumer digital wallet with cashback, multi-currency cards &amp; FX — adds spending experience layer &amp; EU card product to eToro Money</span></td>
+        </tr>
+        <tr data-region="EU" data-type="PFM">
+          <td><span class="co-name">Finary</span><span class="co-url">finary.com</span></td>
+          <td><span class="tag tag-region">EU</span></td>
+          <td><span class="tag tag-type">Wealth / PFM</span></td>
+          <td><span class="lic-text">French regulated; AISP</span></td>
+          <td><span class="val-badge">&lt;$100M (est.)</span></td>
+          <td><span class="users-text">~200k+ (EU, fast-growing)</span></td>
+          <td><span class="team-text">~50</span></td>
+          <td><span class="fit-text">Net worth &amp; portfolio aggregation app with strong EU traction; bridges savings &amp; investing — natural on-ramp into eToro's investment products</span></td>
+        </tr>
+        <tr data-region="UK" data-type="PFM">
+          <td><span class="co-name">HyperJar</span><span class="co-url">hyperjar.com</span></td>
+          <td><span class="tag tag-region">UK</span></td>
+          <td><span class="tag tag-type">Spending / Savings</span></td>
+          <td><span class="lic-text">UK EMI</span></td>
+          <td><span class="val-badge">&lt;$50M (est.)</span></td>
+          <td><span class="users-text">~200k+ (UK consumers &amp; families)</span></td>
+          <td><span class="team-text">~60</span></td>
+          <td><span class="fit-text">Jar-based spending &amp; saving UX with merchant partnerships; family &amp; shared pots functionality; unique habit-formation approach</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- DETAILED CARDS -->
+<div class="detail-section">
+  <h2>03 — Detailed Company Reviews</h2>
+  <div class="cards-grid">
+
+    <!-- Moneyhub -->
+    <div class="card">
+      <div class="card-head">
+        <div><div class="card-name">Moneyhub</div><div class="card-url">moneyhub.com</div></div>
+        <span class="card-val">&lt;$100M (est.)</span>
+      </div>
+      <div class="card-meta">
+        <span class="tag tag-region">UK</span>
+        <span class="tag tag-type">Open Banking / PFM API</span>
+      </div>
+      <div class="card-section-label">Licenses</div>
+      <p style="font-size:12px;color:var(--etoro-muted)">FCA AISP & PISP · ISO 27001 certified · Open Finance platform</p>
+      <div class="card-section-label">Products & Services</div>
+      <div class="card-services">
+        <span class="svc-tag">Open Banking APIs</span>
+        <span class="svc-tag">Open Finance data</span>
+        <span class="svc-tag">PFM engine</span>
+        <span class="svc-tag">Consent management</span>
+        <span class="svc-tag">Payment initiation (PIS)</span>
+        <span class="svc-tag">Pension data aggregation</span>
+        <span class="svc-tag">Financial insights</span>
+      </div>
+      <div class="card-stats">
+        <div class="stat"><div class="stat-val">B2B</div><div class="stat-label">Client model</div></div>
+        <div class="stat"><div class="stat-val">~100</div><div class="stat-label">Team size</div></div>
+        <div class="stat"><div class="stat-val">Bristol</div><div class="stat-label">HQ</div></div>
+      </div>
+      <div class="card-section-label">Real Service vs UI</div>
+      <p style="font-size:12px;color:var(--etoro-muted)">API infrastructure layer — powers banks, insurers, pension providers, and wealth managers. No retail balance sheet.</p>
+      <div class="card-rationale"><strong>Acquisition rationale:</strong> Bank-grade open finance infrastructure with FCA AISP+PISP licences, pension data aggregation, and proven enterprise deployments. Acquired by Hub Investment Holdings in 2022 but remains an independent operating entity. Acquiring Moneyhub's platform would give eToro Money a production-ready data and payment initiation engine without a multi-year build, plus rich financial data to power personalised nudges across saving, spending, and trading.</div>
+    </div>
+
+    <!-- Creditspring -->
+    <div class="card">
+      <div class="card-head">
+        <div><div class="card-name">Creditspring</div><div class="card-url">creditspring.co.uk</div></div>
+        <span class="card-val">&lt;$100M (est.)</span>
+      </div>
+      <div class="card-meta">
+        <span class="tag tag-region">UK</span>
+        <span class="tag tag-type">Credit / Lending</span>
+      </div>
+      <div class="card-section-label">Licenses</div>
+      <p style="font-size:12px;color:var(--etoro-muted)">FCA-regulated direct lender (FCA reg. 786052) · Subscription Finance model</p>
+      <div class="card-section-label">Products & Services</div>
+      <div class="card-services">
+        <span class="svc-tag">Subscription-based loans (0% interest)</span>
+        <span class="svc-tag">Credit building (Step)</span>
+        <span class="svc-tag">Benefits Finder tool</span>
+        <span class="svc-tag">Financial education (Learning Academy)</span>
+        <span class="svc-tag">Creditspring Go (credit trainer)</span>
+      </div>
+      <div class="card-stats">
+        <div class="stat"><div class="stat-val">350k+</div><div class="stat-label">Active members</div></div>
+        <div class="stat"><div class="stat-val">£715M+</div><div class="stat-label">Loans issued</div></div>
+        <div class="stat"><div class="stat-val">~93</div><div class="stat-label">Team size</div></div>
+      </div>
+      <div class="card-section-label">Real Service vs UI</div>
+      <p style="font-size:12px;color:var(--etoro-muted)">Real FCA-regulated lending — Creditspring IS the lender. Fully funded loan book with TransUnion credit data integration.</p>
+      <div class="card-rationale"><strong>Acquisition rationale:</strong> UK's leading subscription finance lender, targeting the underserved near-prime segment (12–15M UK adults). 350,000 active members as of Dec 2025, £715M+ in loans issued, and ranked 12th in Sunday Times' fastest-growing UK tech companies. FCA lending licence provides eToro Money with immediate credit product capability — and the subscription model aligns with eToro's platform monetisation strategy.</div>
+    </div>
+
+    <!-- Updraft -->
+    <div class="card">
+      <div class="card-head">
+        <div><div class="card-name">Updraft</div><div class="card-url">updraft.com</div></div>
+        <span class="card-val">&lt;$150M (est.)</span>
+      </div>
+      <div class="card-meta">
+        <span class="tag tag-region">UK</span>
+        <span class="tag tag-type">Credit / PFM</span>
+      </div>
+      <div class="card-section-label">Licenses</div>
+      <p style="font-size:12px;color:var(--etoro-muted)">FCA-authorised consumer lender · Open Banking data user</p>
+      <div class="card-section-label">Products & Services</div>
+      <div class="card-services">
+        <span class="svc-tag">Credit card refinancing</span>
+        <span class="svc-tag">Overdraft consolidation</span>
+        <span class="svc-tag">Open banking credit report</span>
+        <span class="svc-tag">Behavioural debt coaching</span>
+        <span class="svc-tag">Credit score & goals</span>
+        <span class="svc-tag">BNPL management</span>
+      </div>
+      <div class="card-stats">
+        <div class="stat"><div class="stat-val">500k+</div><div class="stat-label">Users</div></div>
+        <div class="stat"><div class="stat-val">Profitable</div><div class="stat-label">Since 2024</div></div>
+        <div class="stat"><div class="stat-val">~38</div><div class="stat-label">Team size</div></div>
+      </div>
+      <div class="card-section-label">Real Service vs UI</div>
+      <p style="font-size:12px;color:var(--etoro-muted)">Real FCA-licensed lender — originates lower-cost loans to replace credit card balances. Lean, profitable team.</p>
+      <div class="card-rationale"><strong>Acquisition rationale:</strong> Unique "debt-to-savings" conversion funnel: users pay off expensive debt, then progress to saving and investing — a natural on-ramp into eToro's investment products. Profitable since 2024 with 500k+ users and £272M raised. Founders are ex-HSBC unsecured lending executives. The behavioural analytics engine would enrich eToro Money's personalisation layer significantly.</div>
+    </div>
+
+    <!-- Monese -->
+    <div class="card">
+      <div class="card-head">
+        <div><div class="card-name">Monese</div><div class="card-url">monese.com</div></div>
+        <span class="card-val">&lt;$150M (est.)</span>
+      </div>
+      <div class="card-meta">
+        <span class="tag tag-region">UK</span><span class="tag tag-region">EU</span>
+        <span class="tag tag-type">Digital Banking</span>
+      </div>
+      <div class="card-section-label">Licenses</div>
+      <p style="font-size:12px;color:var(--etoro-muted)">UK EMI · EU structures · Dual-jurisdiction passporting</p>
+      <div class="card-section-label">Products & Services</div>
+      <div class="card-services">
+        <span class="svc-tag">Digital current accounts</span>
+        <span class="svc-tag">Debit cards (Mastercard)</span>
+        <span class="svc-tag">International remittances</span>
+        <span class="svc-tag">Budgeting tools</span>
+        <span class="svc-tag">Multi-currency support</span>
+        <span class="svc-tag">Cross-border onboarding</span>
+      </div>
+      <div class="card-stats">
+        <div class="stat"><div class="stat-val">~2M</div><div class="stat-label">Users (est.)</div></div>
+        <div class="stat"><div class="stat-val">UK + EU</div><div class="stat-label">Dual licences</div></div>
+        <div class="stat"><div class="stat-val">~200</div><div class="stat-label">Team size</div></div>
+      </div>
+      <div class="card-section-label">Real Service vs UI</div>
+      <p style="font-size:12px;color:var(--etoro-muted)">Real EMI-powered current accounts and debit cards for UK and EU residents — not a data layer.</p>
+      <div class="card-rationale"><strong>Acquisition rationale:</strong> One of the most accessible digital bank accounts in the UK/EU with ~2M users, strongly indexed towards cross-border, migrant, and underbanked populations. Dual UK/EU EMI licensing removes a significant regulatory hurdle. Monese's frictionless onboarding (no proof of address required) is a differentiator eToro Money could leverage for global user acquisition.</div>
+    </div>
+
+    <!-- ZEN.com -->
+    <div class="card">
+      <div class="card-head">
+        <div><div class="card-name">ZEN.com</div><div class="card-url">zen.com</div></div>
+        <span class="card-val">&lt;$100M (est.)</span>
+      </div>
+      <div class="card-meta">
+        <span class="tag tag-region">EU</span><span class="tag tag-region">UK</span>
+        <span class="tag tag-type">Wallet / Cards</span>
+      </div>
+      <div class="card-section-label">Licenses</div>
+      <p style="font-size:12px;color:var(--etoro-muted)">EMI (Lithuania + other EU jurisdictions)</p>
+      <div class="card-section-label">Products & Services</div>
+      <div class="card-services">
+        <span class="svc-tag">Digital wallet</span>
+        <span class="svc-tag">Multi-currency accounts</span>
+        <span class="svc-tag">Cashback card</span>
+        <span class="svc-tag">Virtual & physical cards</span>
+        <span class="svc-tag">FX transfers</span>
+        <span class="svc-tag">Buyer protection</span>
+      </div>
+      <div class="card-stats">
+        <div class="stat"><div class="stat-val">100k–1M</div><div class="stat-label">Users (est.)</div></div>
+        <div class="stat"><div class="stat-val">EU + UK</div><div class="stat-label">Coverage</div></div>
+        <div class="stat"><div class="stat-val">~100+</div><div class="stat-label">Team size</div></div>
+      </div>
+      <div class="card-section-label">Real Service vs UI</div>
+      <p style="font-size:12px;color:var(--etoro-muted)">Real EMI wallet with physical and virtual card issuance and FX capabilities.</p>
+      <div class="card-rationale"><strong>Acquisition rationale:</strong> Consumer-facing wallet with cashback and multi-currency features that would complement eToro Money's card product. ZEN.com's buyer protection differentiation and EU-wide card infrastructure would accelerate consumer card programme expansion across continental Europe without building from scratch.</div>
+    </div>
+
+    <!-- Finary -->
+    <div class="card">
+      <div class="card-head">
+        <div><div class="card-name">Finary</div><div class="card-url">finary.com</div></div>
+        <span class="card-val">&lt;$100M (est.)</span>
+      </div>
+      <div class="card-meta">
+        <span class="tag tag-region">EU (France)</span>
+        <span class="tag tag-type">Wealth / PFM</span>
+      </div>
+      <div class="card-section-label">Licenses</div>
+      <p style="font-size:12px;color:var(--etoro-muted)">French regulated · AISP · Backed by Sequoia & DST (Pennylane co-investors)</p>
+      <div class="card-section-label">Products & Services</div>
+      <div class="card-services">
+        <span class="svc-tag">Net worth tracker</span>
+        <span class="svc-tag">Portfolio aggregation</span>
+        <span class="svc-tag">Stock & crypto tracking</span>
+        <span class="svc-tag">Real estate valuation</span>
+        <span class="svc-tag">Savings rate optimiser</span>
+        <span class="svc-tag">Investment performance analytics</span>
+      </div>
+      <div class="card-stats">
+        <div class="stat"><div class="stat-val">200k+</div><div class="stat-label">Users (EU)</div></div>
+        <div class="stat"><div class="stat-val">France/EU</div><div class="stat-label">Primary market</div></div>
+        <div class="stat"><div class="stat-val">~50</div><div class="stat-label">Team size</div></div>
+      </div>
+      <div class="card-section-label">Real Service vs UI</div>
+      <p style="font-size:12px;color:var(--etoro-muted)">Aggregation and analytics layer — no balance sheet. Strong EU market traction and investor-profile users.</p>
+      <div class="card-rationale"><strong>Acquisition rationale:</strong> Finary's users are actively engaged investors tracking multi-asset portfolios — the ideal eToro prospect. Its EU regulatory footprint and strong French market traction provides a European PFM anchor that Emma provides in the UK. Acquiring Finary would instantly give eToro Money a wealth management UX layer and a high-intent European investor community.</div>
+    </div>
+
+    <!-- HyperJar -->
+    <div class="card">
+      <div class="card-head">
+        <div><div class="card-name">HyperJar</div><div class="card-url">hyperjar.com</div></div>
+        <span class="card-val">&lt;$50M (est.)</span>
+      </div>
+      <div class="card-meta">
+        <span class="tag tag-region">UK</span>
+        <span class="tag tag-type">Spending / Savings</span>
+      </div>
+      <div class="card-section-label">Licenses</div>
+      <p style="font-size:12px;color:var(--etoro-muted)">UK EMI · FCA regulated · Prepaid Mastercard issuer</p>
+      <div class="card-section-label">Products & Services</div>
+      <div class="card-services">
+        <span class="svc-tag">Spending jars (pots)</span>
+        <span class="svc-tag">Prepaid Mastercard</span>
+        <span class="svc-tag">Merchant-linked saving</span>
+        <span class="svc-tag">Family & shared pots</span>
+        <span class="svc-tag">Kids app</span>
+        <span class="svc-tag">Cashback with partners</span>
+      </div>
+      <div class="card-stats">
+        <div class="stat"><div class="stat-val">~200k+</div><div class="stat-label">UK users</div></div>
+        <div class="stat"><div class="stat-val">UK EMI</div><div class="stat-label">Licence</div></div>
+        <div class="stat"><div class="stat-val">~60</div><div class="stat-label">Team size</div></div>
+      </div>
+      <div class="card-section-label">Real Service vs UI</div>
+      <p style="font-size:12px;color:var(--etoro-muted)">Real UK EMI with prepaid Mastercard and merchant savings ecosystem. Cards are physically and digitally issued.</p>
+      <div class="card-rationale"><strong>Acquisition rationale:</strong> HyperJar's jar-based spending UX and merchant partnerships create a compelling daily-use habit loop — exactly what eToro Money needs to drive daily engagement beyond investing. The family accounts and kids functionality addresses an underserved demographic for eToro, while the merchant integration network adds affiliate revenue optionality.</div>
+    </div>
+
+  </div><!-- /cards-grid -->
+</div><!-- /detail-section -->
+
+<!-- GAINS SUMMARY TABLE -->
+<div class="table-section" style="padding-top:0">
+  <div class="section-header">
+    <span class="section-title">04 — What eToro Gains (At a Glance)</span>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Company</th>
+          <th>Geography</th>
+          <th>Licensing</th>
+          <th>Features / Services</th>
+          <th>What eToro Gains</th>
+          <th>Notable</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="co-name">Moneyhub</span></td>
+          <td><span class="tag tag-region">UK</span></td>
+          <td><span class="lic-text">FCA AISP + PISP</span></td>
+          <td><span style="font-size:12px">Open Banking APIs, PFM engine, payment initiation, pension data</span></td>
+          <td><span style="font-size:12px;color:var(--etoro-light)">Production-ready open finance infrastructure + VRP/PIS payment rails</span></td>
+          <td><span style="font-size:11px;color:var(--etoro-muted)">Powers Paragon Bank, UK government</span></td>
+        </tr>
+        <tr>
+          <td><span class="co-name">Creditspring</span></td>
+          <td><span class="tag tag-region">UK</span></td>
+          <td><span class="lic-text">FCA direct lender</span></td>
+          <td><span style="font-size:12px">Subscription loans, credit building, financial education</span></td>
+          <td><span style="font-size:12px;color:var(--etoro-light)">Immediate FCA lending licence; 350k+ near-prime members; no-interest credit model</span></td>
+          <td><span style="font-size:11px;color:var(--etoro-muted)">Profitable; Sunday Times top 12 UK tech</span></td>
+        </tr>
+        <tr>
+          <td><span class="co-name">Updraft</span></td>
+          <td><span class="tag tag-region">UK</span></td>
+          <td><span class="lic-text">FCA-authorised lender</span></td>
+          <td><span style="font-size:12px">Credit refinancing, open banking, debt-to-savings funnel</span></td>
+          <td><span style="font-size:12px;color:var(--etoro-light)">Behavioural credit analytics + 500k users on a clear path from debt to investing</span></td>
+          <td><span style="font-size:11px;color:var(--etoro-muted)">Profitable since 2024; ex-HSBC founding team</span></td>
+        </tr>
+        <tr>
+          <td><span class="co-name">Monese</span></td>
+          <td><span class="tag tag-region">UK</span><span class="tag tag-region">EU</span></td>
+          <td><span class="lic-text">UK + EU EMI</span></td>
+          <td><span style="font-size:12px">Current accounts, debit cards, remittances, cross-border onboarding</span></td>
+          <td><span style="font-size:12px;color:var(--etoro-light)">Dual UK/EU EMI passporting + 2M cross-border users with frictionless onboarding</span></td>
+          <td><span style="font-size:11px;color:var(--etoro-muted)">No proof-of-address required; migrant-focused</span></td>
+        </tr>
+        <tr>
+          <td><span class="co-name">ZEN.com</span></td>
+          <td><span class="tag tag-region">EU</span><span class="tag tag-region">UK</span></td>
+          <td><span class="lic-text">EU EMI</span></td>
+          <td><span style="font-size:12px">Digital wallet, cashback card, multi-currency, FX</span></td>
+          <td><span style="font-size:12px;color:var(--etoro-light)">EU consumer card programme + cashback + buyer protection differentiator</span></td>
+          <td><span style="font-size:11px;color:var(--etoro-muted)">Strong EU card infrastructure</span></td>
+        </tr>
+        <tr>
+          <td><span class="co-name">Finary</span></td>
+          <td><span class="tag tag-region">EU (France)</span></td>
+          <td><span class="lic-text">French regulated AISP</span></td>
+          <td><span style="font-size:12px">Net worth tracker, portfolio aggregation, investment analytics</span></td>
+          <td><span style="font-size:12px;color:var(--etoro-light)">EU investor-profile user base; EU PFM anchor to complement Emma in UK</span></td>
+          <td><span style="font-size:11px;color:var(--etoro-muted)">Backed by Shapers VC; strong EU product-market fit</span></td>
+        </tr>
+        <tr>
+          <td><span class="co-name">HyperJar</span></td>
+          <td><span class="tag tag-region">UK</span></td>
+          <td><span class="lic-text">UK EMI</span></td>
+          <td><span style="font-size:12px">Spending jars, prepaid Mastercard, merchant savings, family accounts</span></td>
+          <td><span style="font-size:12px;color:var(--etoro-light)">Daily-use habit formation + family accounts + merchant partner ecosystem</span></td>
+          <td><span style="font-size:11px;color:var(--etoro-muted)">Unique jar UX; $24M Series A (Susquehanna)</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="footer">
+  eToro Money · Supplementary M&A Research · March 2026 · Confidential — for internal use only
+</div>
+
+<script>
+function filterRows(type, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const rows = document.querySelectorAll('#mainTable tbody tr');
+  rows.forEach(row => {
+    if (type === 'all') { row.style.display = ''; return; }
+    const region = row.dataset.region || '';
+    const rtype = row.dataset.type || '';
+    if (type === 'UK' && region === 'UK') row.style.display = '';
+    else if (type === 'EU' && (region === 'EU' || region.includes('EU'))) row.style.display = '';
+    else if (type === 'PFM' && rtype === 'PFM') row.style.display = '';
+    else if (type === 'Credit' && rtype === 'Credit') row.style.display = '';
+    else if (type === 'Banking' && rtype === 'Banking') row.style.display = '';
+    else row.style.display = 'none';
+  });
+}
+</script>
+</body>
+</html>
