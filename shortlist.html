@@ -20,29 +20,26 @@ body{background:#0d1421;color:#c8d4e8;font-family:-apple-system,BlinkMacSystemFo
 .hero-sub{color:#8b9ab8;font-size:13px;margin-bottom:24px}
 .hero-pills{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
 .pill{background:rgba(0,200,150,.1);border:1px solid rgba(0,200,150,.25);border-radius:20px;padding:5px 16px;font-size:12px;color:#00c896}
-.pill-red{background:rgba(255,80,80,.1);border:1px solid rgba(255,80,80,.3);color:#ff6060}
 .pill-amber{background:rgba(255,180,0,.08);border:1px solid rgba(255,180,0,.25);color:#ffb400}
 
-/* CRITERIA STRIP */
 .criteria{padding:24px 40px;background:rgba(0,200,150,.03);border-bottom:1px solid #1e2d44;display:flex;gap:24px;flex-wrap:wrap}
 .crit{display:flex;align-items:flex-start;gap:10px;flex:1;min-width:180px}
 .crit-icon{font-size:18px;margin-top:2px}
 .crit-label{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#00c896;margin-bottom:3px}
 .crit-desc{font-size:12px;color:#8b9ab8}
 
-/* EXCLUDED NOTE */
 .excluded{margin:20px 40px 0;background:rgba(255,80,80,.06);border:1px solid rgba(255,80,80,.2);border-radius:8px;padding:12px 16px;font-size:12px;color:#ff9090}
 .excluded strong{color:#ff6060}
 
-/* CARDS */
 .cards{padding:24px 40px 40px;display:flex;flex-direction:column;gap:20px}
 .card{background:#141d2e;border:1px solid #1e2d44;border-radius:12px;overflow:hidden;transition:border-color .2s}
 .card:hover{border-color:rgba(0,200,150,.35)}
-.card-header{display:flex;align-items:center;gap:0;cursor:pointer;padding:0}
+.card-header{display:flex;align-items:center;cursor:pointer}
 .rank{width:60px;min-width:60px;background:rgba(0,200,150,.12);display:flex;align-items:center;justify-content:center;padding:22px 0;border-right:1px solid #1e2d44}
 .rank-num{font-size:22px;font-weight:800;color:#00c896}
+.rank-amber{background:rgba(255,180,0,.1)}
+.rank-num-amber{color:#ffb400}
 .card-main{flex:1;padding:18px 20px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
-.co-block{}
 .co-name{font-size:16px;font-weight:700;color:#f0f4fc;margin-bottom:3px}
 .co-url{font-size:11px;color:#4a6080}
 .co-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
@@ -58,15 +55,13 @@ body{background:#0d1421;color:#c8d4e8;font-family:-apple-system,BlinkMacSystemFo
 .stat-l{font-size:10px;color:#4a6080;margin-top:2px}
 .card-expand-btn{width:44px;min-width:44px;display:flex;align-items:center;justify-content:center;padding:18px 0;cursor:pointer;color:#4a6080;font-size:14px;border-left:1px solid #1e2d44;align-self:stretch;transition:color .2s}
 .card:hover .card-expand-btn{color:#00c896}
-.card.open .card-expand-btn{color:#00c896;transform:none}
 .chevron{transition:transform .2s;display:inline-block}
 .card.open .chevron{transform:rotate(180deg)}
+.card.open .card-expand-btn{color:#00c896}
 
-/* DETAIL */
 .card-detail{display:none;border-top:1px solid #1e2d44;padding:22px 20px 22px 80px}
 .card.open .card-detail{display:block}
 .detail-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-bottom:18px}
-.dblock{}
 .dlabel{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#4a6080;margin-bottom:7px}
 .dtext{font-size:13px;color:#c8d4e8;line-height:1.6}
 .chips{display:flex;flex-wrap:wrap;gap:5px}
@@ -81,9 +76,8 @@ body{background:#0d1421;color:#c8d4e8;font-family:-apple-system,BlinkMacSystemFo
 .risk-amber{color:#ffb400;border-color:rgba(255,180,0,.3);background:rgba(255,180,0,.07)}
 .risk-red{color:#ff7070;border-color:rgba(255,80,80,.3);background:rgba(255,80,80,.07)}
 
-/* WHY EXCLUDED */
 .excluded-section{margin:0 40px 40px;background:#141d2e;border:1px solid #1e2d44;border-radius:12px;overflow:hidden}
-.excluded-header{padding:16px 20px;border-bottom:1px solid #1e2d44;display:flex;align-items:center;gap:10px}
+.excluded-header{padding:16px 20px;border-bottom:1px solid #1e2d44}
 .excluded-header span{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#ff6060}
 .excl-items{padding:16px 20px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
 .excl-item{background:rgba(255,80,80,.04);border:1px solid rgba(255,80,80,.15);border-radius:8px;padding:12px 14px}
@@ -125,37 +119,24 @@ body{background:#0d1421;color:#c8d4e8;font-family:-apple-system,BlinkMacSystemFo
 </div>
 
 <div class="criteria">
-  <div class="crit">
-    <div class="crit-icon">💷</div>
-    <div><div class="crit-label">Valuation filter</div><div class="crit-desc">Equity raise ≤ £50M (Raz's threshold: sell at ~£70M)</div></div>
-  </div>
-  <div class="crit">
-    <div class="crit-icon">📱</div>
-    <div><div class="crit-label">Live product</div><div class="crit-desc">Must have a working consumer-facing product to showcase</div></div>
-  </div>
-  <div class="crit">
-    <div class="crit-icon">🏦</div>
-    <div><div class="crit-label">IBAN programme fit</div><div class="crit-desc">Accelerates eToro Money's daily banking & spending capabilities</div></div>
-  </div>
-  <div class="crit">
-    <div class="crit-icon">🪪</div>
-    <div><div class="crit-label">Real licence</div><div class="crit-desc">FCA/EMI or regulated lending — not just a data layer</div></div>
-  </div>
+  <div class="crit"><div class="crit-icon">💷</div><div><div class="crit-label">Valuation filter</div><div class="crit-desc">Equity raise ≤ £50M (Raz's threshold: sell at ~£70M)</div></div></div>
+  <div class="crit"><div class="crit-icon">📱</div><div><div class="crit-label">Live product</div><div class="crit-desc">Must have a working consumer-facing product to showcase</div></div></div>
+  <div class="crit"><div class="crit-icon">🏦</div><div><div class="crit-label">IBAN programme fit</div><div class="crit-desc">Accelerates eToro Money's daily banking & spending capabilities</div></div></div>
+  <div class="crit"><div class="crit-icon">🪪</div><div><div class="crit-label">Real licence</div><div class="crit-desc">FCA/EMI or regulated lending — not just a data layer</div></div></div>
 </div>
 
 <div class="excluded">
-  <strong>⚠️ Removed from consideration before shortlisting:</strong> Monese (acquired by Pockit — already in Ofir's pipeline). Moneyhub (already acquired by MMI Holdings / Hub Investment Holdings in 2022 — institutional owner, not a clean standalone acquisition). Emma (only £7.6M raised, 9 employees as of 2025, appears dormant — not responsive per your meeting with Ofir).
+  <strong>⚠️ Removed before shortlisting:</strong> Monese (acquired by Pockit — covered by #4). Moneyhub (acquired by MMI Holdings 2022 — not a clean standalone buy). Emma (9 employees, appears dormant, not responding). ZEN.com (removed after confirming eToro Money already holds UK FCA EMI + EU EMI with full passporting — ZEN's dual-licence rationale added no strategic value).
 </div>
 
-<!-- CARDS -->
 <div class="cards">
 
-  <!-- 1. Creditspring -->
+  <!-- #1 Creditspring -->
   <div class="card" id="c1">
     <div class="card-header" onclick="toggle('c1')">
       <div class="rank"><div class="rank-num">1</div></div>
       <div class="card-main">
-        <div class="co-block">
+        <div>
           <div class="co-name">Creditspring</div>
           <div class="co-url">creditspring.co.uk</div>
           <div class="co-tags">
@@ -176,32 +157,16 @@ body{background:#0d1421;color:#c8d4e8;font-family:-apple-system,BlinkMacSystemFo
     </div>
     <div class="card-detail">
       <div class="detail-grid">
-        <div class="dblock">
-          <div class="dlabel">Licence & Regulation</div>
-          <div class="dtext">FCA-regulated direct lender (reg. 786052). Creditspring IS the balance sheet lender — no partner dependency. TransUnion integration for credit decisioning.</div>
-        </div>
-        <div class="dblock">
-          <div class="dlabel">Products (live, all working)</div>
-          <div class="chips">
-            <span class="chip">Subscription loans (0% interest)</span>
-            <span class="chip">Credit building (Step)</span>
-            <span class="chip">Benefits Finder</span>
-            <span class="chip">Learning Academy</span>
-            <span class="chip">Creditspring Go</span>
-          </div>
-        </div>
-        <div class="dblock">
-          <div class="dlabel">Financials</div>
-          <div class="dtext">Total equity raised: ~£70M (Series A 2022 led by Monomyth Group, £48M). £75M TISE debt listing 2025. Valuation at Series A: £91.5M — but this was peak 2022 valuation; realistic 2026 exit likely £50–70M equity given no new equity round since 2022.</div>
-        </div>
+        <div><div class="dlabel">Licence & Regulation</div><div class="dtext">FCA-regulated direct lender (reg. 786052). Creditspring IS the balance sheet lender — no partner dependency. TransUnion integration for credit decisioning.</div></div>
+        <div><div class="dlabel">Products (live)</div><div class="chips"><span class="chip">Subscription loans (0% interest)</span><span class="chip">Credit building (Step)</span><span class="chip">Benefits Finder</span><span class="chip">Learning Academy</span><span class="chip">Creditspring Go</span></div></div>
+        <div><div class="dlabel">Financials</div><div class="dtext">Total equity: ~£70M. Series A (2022, Monomyth Group, £48M). No new equity since mid-2022. Realistic 2026 acquisition: £50–65M equity.</div></div>
       </div>
       <div class="rationale">
         <div class="rationale-title">Why this is #1 for eToro</div>
-        <div class="rationale-text">
-          <strong>Immediate FCA lending licence</strong> — the hardest thing to build or buy for eToro Money's credit ambitions. 350,000 members who are active borrowers are the exact near-prime UK consumers eToro wants to pull into the IBAN + investing funnel. The subscription model (fixed monthly fee, not interest) is frictionless to explain and aligns with eToro's platform monetisation. <strong>No equity raise since mid-2022</strong> — investors (Monomyth Group, BDT & Co) will want a liquidity event, making them likely receptive. Ranked #12 Sunday Times 2025 fastest-growing tech. Team of 107 is a meaningful engineering acquisition.
+        <div class="rationale-text"><strong>Immediate FCA lending licence</strong> — the hardest thing to build or buy. 350k near-prime members are the exact UK consumers eToro Money's IBAN product targets. Subscription model aligns with eToro's platform monetisation. No equity raise since 2022 means investors want a liquidity event.
           <div class="risk-row">
             <span class="risk-green">✓ Live product + real users</span>
-            <span class="risk-green">✓ FCA licence (immediate value)</span>
+            <span class="risk-green">✓ FCA lending licence</span>
             <span class="risk-green">✓ Within £70M threshold</span>
             <span class="risk-amber">△ No equity raise since 2022 — price discovery needed</span>
             <span class="risk-amber">△ Loan book requires capital commitment</span>
@@ -211,12 +176,12 @@ body{background:#0d1421;color:#c8d4e8;font-family:-apple-system,BlinkMacSystemFo
     </div>
   </div>
 
-  <!-- 2. Updraft -->
+  <!-- #2 Updraft -->
   <div class="card" id="c2">
     <div class="card-header" onclick="toggle('c2')">
       <div class="rank"><div class="rank-num">2</div></div>
       <div class="card-main">
-        <div class="co-block">
+        <div>
           <div class="co-name">Updraft</div>
           <div class="co-url">updraft.com</div>
           <div class="co-tags">
@@ -227,7 +192,7 @@ body{background:#0d1421;color:#c8d4e8;font-family:-apple-system,BlinkMacSystemFo
           </div>
         </div>
         <div class="card-stats">
-          <div class="stat"><div class="stat-v">~£40–60M</div><div class="stat-l">Est. equity value</div></div>
+          <div class="stat"><div class="stat-v">~£40–50M</div><div class="stat-l">Est. equity value</div></div>
           <div class="stat"><div class="stat-v">500k+</div><div class="stat-l">Users</div></div>
           <div class="stat"><div class="stat-v">Profitable</div><div class="stat-l">Since 2024</div></div>
           <div class="stat"><div class="stat-v">~38</div><div class="stat-l">Team</div></div>
@@ -237,47 +202,31 @@ body{background:#0d1421;color:#c8d4e8;font-family:-apple-system,BlinkMacSystemFo
     </div>
     <div class="card-detail">
       <div class="detail-grid">
-        <div class="dblock">
-          <div class="dlabel">Licence & Regulation</div>
-          <div class="dtext">FCA-authorised consumer lender. Open banking data integrations (NatWest, Santander, Jefferies as debt partners). Lean team, small equity base of ~£22M total equity raised.</div>
-        </div>
-        <div class="dblock">
-          <div class="dlabel">Products (live, all working)</div>
-          <div class="chips">
-            <span class="chip">Credit card refinancing</span>
-            <span class="chip">Overdraft consolidation</span>
-            <span class="chip">Open banking credit report</span>
-            <span class="chip">Debt coaching & goals</span>
-            <span class="chip">BNPL management</span>
-          </div>
-        </div>
-        <div class="dblock">
-          <div class="dlabel">Financials</div>
-          <div class="dtext">Total equity: ~£22M. £272M latest round was mostly £250M forward flow (debt, not equity). Equity component ~£22M led by Quilam, MoreThan Capital. Profitable since 2024. Equity valuation likely £40–60M — comfortably inside Raz's threshold.</div>
-        </div>
+        <div><div class="dlabel">Licence & Regulation</div><div class="dtext">FCA-authorised consumer lender. Open banking integrations with NatWest, Santander, Jefferies as debt partners. ~£22M total equity raised.</div></div>
+        <div><div class="dlabel">Products (live)</div><div class="chips"><span class="chip">Credit card refinancing</span><span class="chip">Overdraft consolidation</span><span class="chip">Open banking credit report</span><span class="chip">Debt coaching & goals</span><span class="chip">BNPL management</span></div></div>
+        <div><div class="dlabel">Financials</div><div class="dtext">Total equity: ~£22M. £272M latest round = £250M forward flow debt (stays with Santander/Jefferies — not eToro's risk). Profitable since 2024. Equity valuation: ~£40–50M.</div></div>
       </div>
       <div class="rationale">
         <div class="rationale-title">Why this is #2 for eToro</div>
-        <div class="rationale-text">
-          Updraft's core genius is its <strong>debt-to-savings-to-investing funnel</strong>: users arrive to pay off credit card debt, get coached into saving, and naturally migrate upward into investing. This is precisely the journey eToro Money needs to create. 500k users already on that path. Founded by ex-HSBC cards and lending head — relevant team for eToro's credit build-out. <strong>Smallest equity raise (~£22M) of any candidate</strong>, making the equity acquisition cost the most affordable on this list. The £250M forward flow stays with Santander/Jefferies — eToro doesn't need to absorb loan book risk at acquisition.
+        <div class="rationale-text">Unique <strong>debt-to-savings-to-investing funnel</strong>: users pay off debt, progress to saving, then naturally migrate to investing — a perfect on-ramp into eToro's products. <strong>Smallest equity raise (~£22M)</strong> of any candidate. Profitable. Forward flow debt stays with Santander/Jefferies — eToro doesn't absorb loan book risk.
           <div class="risk-row">
             <span class="risk-green">✓ Cheapest equity acquisition on list</span>
             <span class="risk-green">✓ Profitable — no distressed dynamics</span>
             <span class="risk-green">✓ Forward flow debt stays with banks</span>
-            <span class="risk-amber">△ Small team (38) — talent retention key</span>
-            <span class="risk-amber">△ Pure UK play; no EU licence</span>
+            <span class="risk-amber">△ Small team (38) — retention key</span>
+            <span class="risk-amber">△ Pure UK, no EU licence</span>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 3. HyperJar -->
+  <!-- #3 HyperJar -->
   <div class="card" id="c3">
     <div class="card-header" onclick="toggle('c3')">
       <div class="rank"><div class="rank-num">3</div></div>
       <div class="card-main">
-        <div class="co-block">
+        <div>
           <div class="co-name">HyperJar</div>
           <div class="co-url">hyperjar.com</div>
           <div class="co-tags">
@@ -298,113 +247,78 @@ body{background:#0d1421;color:#c8d4e8;font-family:-apple-system,BlinkMacSystemFo
     </div>
     <div class="card-detail">
       <div class="detail-grid">
-        <div class="dblock">
-          <div class="dlabel">Licence & Regulation</div>
-          <div class="dtext">UK FCA-registered EMD agent of Modulr FS Limited (FCA EMI). Prepaid Mastercard issued via Monavate. HyperLayer B2B entity (separate) raised £30M Oct 2025 — strategic sign of investor confidence in the underlying technology.</div>
-        </div>
-        <div class="dblock">
-          <div class="dlabel">Products (live, all working)</div>
-          <div class="chips">
-            <span class="chip">Jar-based spending account</span>
-            <span class="chip">Prepaid Mastercard</span>
-            <span class="chip">Merchant-linked savings</span>
-            <span class="chip">Family & shared jars</span>
-            <span class="chip">Kids card (age 6–17)</span>
-            <span class="chip">Cashback gift cards</span>
-            <span class="chip">HyperLayer B2B platform</span>
-          </div>
-        </div>
-        <div class="dblock">
-          <div class="dlabel">Financials</div>
-          <div class="dtext">Consumer entity (HyperJar Ltd): $24M Series A (Sept 2023, Susquehanna + HOOPP). Series A post-money valuation: ~$130M (Tracxn). 600,000 users. HyperLayer B2B raised £30M separately (Oct 2025). Consumer entity likely acquirable at £40–60M.</div>
-        </div>
+        <div><div class="dlabel">Licence & Regulation</div><div class="dtext">UK FCA-registered EMD agent of Modulr FS. Prepaid Mastercard via Monavate. HyperLayer B2B entity raised £30M (Oct 2025) separately — may allow clean consumer carve-out.</div></div>
+        <div><div class="dlabel">Products (live)</div><div class="chips"><span class="chip">Jar-based spending account</span><span class="chip">Prepaid Mastercard</span><span class="chip">Merchant-linked savings</span><span class="chip">Family & shared jars</span><span class="chip">Kids card (6–17)</span><span class="chip">Cashback gift cards</span></div></div>
+        <div><div class="dlabel">Financials</div><div class="dtext">$24M Series A (Sept 2023, Susquehanna + HOOPP). Post-money: ~$130M. HyperLayer B2B separately funded at £30M (Oct 2025). Consumer entity acquirable at ~£40–60M.</div></div>
       </div>
       <div class="rationale">
         <div class="rationale-title">Why this is #3 for eToro</div>
-        <div class="rationale-text">
-          HyperJar solves eToro Money's biggest unsolved problem: <strong>daily spending engagement</strong>. The jar UX drives habitual daily app opens — something eToro's investing-led interface doesn't generate. 600k users, top-rated UK digital wallet for 12+ months, merchant network (Shell, TUI etc), and a family accounts product that opens the family demographic. The <strong>HyperLayer B2B tech layer</strong> is a bonus — it means eToro could also white-label the spend-and-rewards engine to partners. Former Morgan Stanley CEO Rob Rooney at the helm. Valuation was set at $130M in 2023 but the consumer entity could be carved out below that given HyperLayer is now separately funded and valued.
+        <div class="rationale-text">Solves eToro Money's biggest gap: <strong>daily spending engagement</strong>. 600k users, UK's top-rated digital wallet 12+ months, merchant network (Shell, TUI), family accounts + kids card. HyperLayer B2B now independently funded — allows eToro to acquire the consumer app alone at a lower price.
           <div class="risk-row">
-            <span class="risk-green">✓ 600k live users — highest user base on list</span>
-            <span class="risk-green">✓ Daily-use habit formation product</span>
+            <span class="risk-green">✓ 600k live users — highest on list</span>
+            <span class="risk-green">✓ Daily-use habit formation</span>
             <span class="risk-green">✓ Merchant network is unique asset</span>
-            <span class="risk-amber">△ EMD agent model (not direct EMI holder)</span>
-            <span class="risk-amber">△ HyperLayer now independently funded — may complicate carve-out</span>
-            <span class="risk-amber">△ Series A valuation $130M — negotiate hard on consumer entity only</span>
+            <span class="risk-amber">△ EMD agent model, not direct EMI holder</span>
+            <span class="risk-amber">△ HyperLayer carve-out needs negotiation</span>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 4. ZEN.com -->
+  <!-- #4 Pockit -->
   <div class="card" id="c4">
     <div class="card-header" onclick="toggle('c4')">
       <div class="rank"><div class="rank-num">4</div></div>
       <div class="card-main">
-        <div class="co-block">
-          <div class="co-name">ZEN.com</div>
-          <div class="co-url">zen.com</div>
+        <div>
+          <div class="co-name">Pockit <span style="font-size:11px;color:#00c896;font-weight:400">(inc. Monese)</span></div>
+          <div class="co-url">pockit.com</div>
           <div class="co-tags">
-            <span class="tag tag-eu">EU</span>
             <span class="tag tag-uk">UK</span>
-            <span class="tag tag-type">Wallet / Cards / FX</span>
-            <span class="tag tag-green">Lithuania EMI + UK FCA EMI</span>
+            <span class="tag tag-eu">EU</span>
+            <span class="tag tag-type">Digital Banking</span>
+            <span class="tag tag-green">UK EMI + EU licences</span>
+            <span class="tag tag-green">~£30M ARR</span>
           </div>
         </div>
         <div class="card-stats">
-          <div class="stat"><div class="stat-v">&lt;£50M</div><div class="stat-l">Est. equity value</div></div>
-          <div class="stat"><div class="stat-v">100k–1M</div><div class="stat-l">Users (est.)</div></div>
-          <div class="stat"><div class="stat-v">EU+UK</div><div class="stat-l">Dual EMI</div></div>
-          <div class="stat"><div class="stat-v">~100+</div><div class="stat-l">Team</div></div>
+          <div class="stat"><div class="stat-v">£40–55M</div><div class="stat-l">Est. equity value</div></div>
+          <div class="stat"><div class="stat-v">~3M</div><div class="stat-l">Combined users</div></div>
+          <div class="stat"><div class="stat-v">~£30M</div><div class="stat-l">Run-rate revenue</div></div>
+          <div class="stat"><div class="stat-v">~100</div><div class="stat-l">Team</div></div>
         </div>
       </div>
       <div class="card-expand-btn"><span class="chevron">▾</span></div>
     </div>
     <div class="card-detail">
       <div class="detail-grid">
-        <div class="dblock">
-          <div class="dlabel">Licence & Regulation</div>
-          <div class="dtext">Lithuania EMI (Bank of Lithuania, 2018). UK FCA EMI (Zen UK Ltd, August 2024 — very new). Singapore Payment Institution (2024). Genuinely dual-licensed EU+UK, which is rare post-Brexit.</div>
-        </div>
-        <div class="dblock">
-          <div class="dlabel">Products (live, all working)</div>
-          <div class="chips">
-            <span class="chip">Multi-currency digital wallet</span>
-            <span class="chip">Physical + virtual cards</span>
-            <span class="chip">Cashback (up to 1%)</span>
-            <span class="chip">Buyer protection</span>
-            <span class="chip">FX transfers</span>
-            <span class="chip">Business accounts</span>
-          </div>
-        </div>
-        <div class="dblock">
-          <div class="dlabel">Financials</div>
-          <div class="dtext">Founded 2018. Only 1 known funding round (investor: Science). Very limited public funding data — suggests bootstrap or family-office backed (founder Dawid Rożek, G2A.com co-founder). Low equity dilution = potentially easier acquisition negotiation.</div>
-        </div>
+        <div><div class="dlabel">Licence & Regulation</div><div class="dtext">UK EMI · Consumer credit (income advance) · Monese (acquired Oct 2024): additional UK EMI + EU consumer credit licences + cross-border onboarding. Combined entity serving UK and EU customers.</div></div>
+        <div><div class="dlabel">Products (live)</div><div class="chips"><span class="chip">Current accounts (sort code + account number)</span><span class="chip">Prepaid Mastercard + Apple Pay</span><span class="chip">Cashback (up to 10% at Primark, Sainsbury's, Nike)</span><span class="chip">Income advance</span><span class="chip">Credit builder (LOQBOX)</span><span class="chip">International transfers (Wise rails)</span><span class="chip">Bill switching</span><span class="chip">Monese: cross-border IBANs + EU accounts</span></div></div>
+        <div><div class="dlabel">Financials</div><div class="dtext">Total equity raised: ~$53M. Last round: $10M (Aug 2023, Puma Private Equity). Monese acquisition: £15M equity injection by existing shareholders (Oct 2024). Combined ARR ~£30M. 73M+ transactions. Puma Growth Partners is controlling investor — 5+ years in, motivated to exit.</div></div>
       </div>
       <div class="rationale">
         <div class="rationale-title">Why this is #4 for eToro</div>
-        <div class="rationale-text">
-          ZEN.com is the <strong>only target on either list with a live UK FCA EMI + EU (Lithuania) EMI dual licence</strong> — acquired by eToro, this solves the regulatory passporting problem for rolling out eToro Money across all of EU post-Brexit in one step. The cashback + buyer protection product differentiates eToro's card from Revolut and Wise. Backed by G2A.com's founder with no major VC involvement = likely more flexible on price. Active expansion (Episode Six partnership for card issuance Europe + Asia; Singapore licence 2024) shows ambition but could mean they're open to a strategic acquirer to fund growth.
+        <div class="rationale-text"><strong>3 million everyday consumers who use their account as their primary bank daily</strong> — exactly the daily engagement eToro Money lacks. Cashback merchant network (Primark, Sainsbury's, Argos, Nike, JD Sports) drives card spend. Monese adds EU users and cross-border onboarding. Puma Growth Partners has been in since 2019 and wants an exit — deal dynamics are clean. At £40–55M for 3M users and £30M ARR, this is the <strong>best value acquisition on the shortlist</strong>.
           <div class="risk-row">
-            <span class="risk-green">✓ Only dual UK FCA + EU EMI on the list</span>
-            <span class="risk-green">✓ Likely low equity dilution = good price</span>
-            <span class="risk-green">✓ Live card + cashback product</span>
-            <span class="risk-amber">△ UK FCA EMI only granted Aug 2024 — very new, scrutiny needed</span>
-            <span class="risk-amber">△ Funding opacity — due diligence on ownership structure critical</span>
-            <span class="risk-red">✗ Users not publicly confirmed — validate before proceeding</span>
+            <span class="risk-green">✓ 3M users — largest combined base on shortlist</span>
+            <span class="risk-green">✓ ~£30M ARR — proven real revenue</span>
+            <span class="risk-green">✓ Puma motivated seller — clean deal dynamics</span>
+            <span class="risk-green">✓ Monese EU licences + cross-border UX included</span>
+            <span class="risk-amber">△ Pockit + Monese integration still in progress</span>
+            <span class="risk-amber">△ Financial inclusion base — lower AUM potential vs other picks</span>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 5. Finary (watch list) -->
+  <!-- #5 Finary -->
   <div class="card" id="c5">
     <div class="card-header" onclick="toggle('c5')">
-      <div class="rank" style="background:rgba(255,180,0,.1)"><div class="rank-num" style="color:#ffb400">5</div></div>
+      <div class="rank rank-amber"><div class="rank-num rank-num-amber">5</div></div>
       <div class="card-main">
-        <div class="co-block">
+        <div>
           <div class="co-name">Finary <span style="font-size:11px;color:#ffb400;font-weight:400">(Watch list — see note)</span></div>
           <div class="co-url">finary.com</div>
           <div class="co-tags">
@@ -425,76 +339,36 @@ body{background:#0d1421;color:#c8d4e8;font-family:-apple-system,BlinkMacSystemFo
     </div>
     <div class="card-detail">
       <div class="detail-grid">
-        <div class="dblock">
-          <div class="dlabel">Licence & Regulation</div>
-          <div class="dtext">French Financial Investment Adviser + Insurance Broker. AISP. Not an EMI — aggregation/analytics layer only. Operating under AMF oversight in France.</div>
-        </div>
-        <div class="dblock">
-          <div class="dlabel">Products (live, all working)</div>
-          <div class="chips">
-            <span class="chip">Net worth tracker</span>
-            <span class="chip">Multi-asset portfolio aggregation</span>
-            <span class="chip">AI wealth insights</span>
-            <span class="chip">Finary One (private wealth, €500k+)</span>
-            <span class="chip">Life insurance (BlackRock + Generali)</span>
-            <span class="chip">Crypto investing</span>
-            <span class="chip">YouTube (75M views — community moat)</span>
-          </div>
-        </div>
-        <div class="dblock">
-          <div class="dlabel">Financials & Caution</div>
-          <div class="dtext">Total raised: €38M (~£32M). €25M Series B closed Sept 2025 led by PayPal Ventures. Profitable since Q4 2024. Post-money valuation likely £80–120M range based on Series B pricing — probably above Raz's £70M threshold. Include on watch list; revisit in 12–18 months.</div>
-        </div>
+        <div><div class="dlabel">Licence & Regulation</div><div class="dtext">French Financial Investment Adviser + Insurance Broker. AISP. AMF oversight. Not an EMI — aggregation/analytics layer only.</div></div>
+        <div><div class="dlabel">Products (live)</div><div class="chips"><span class="chip">Net worth tracker</span><span class="chip">Multi-asset portfolio aggregation</span><span class="chip">AI wealth insights</span><span class="chip">Finary One (private wealth €500k+)</span><span class="chip">Life insurance (BlackRock + Generali)</span><span class="chip">Crypto investing</span><span class="chip">YouTube 75M views community</span></div></div>
+        <div><div class="dlabel">Financials & Caution</div><div class="dtext">Total raised: €38M (~£32M). €25M Series B Sept 2025 led by PayPal Ventures. Profitable since Q4 2024. Post-money valuation likely £80–120M — above Raz's ~£70M threshold. Watch list: revisit in 12–18 months.</div></div>
       </div>
       <div class="rationale">
-        <div class="rationale-title">Why it's on the watch list — not ranked higher</div>
-        <div class="rationale-text">
-          Finary is arguably the <strong>best strategic fit for eToro's investor-profile user ambitions</strong> in Europe. 600k French users actively managing multi-asset portfolios are the exact profile eToro wants to convert. The 75M YouTube views are a genuine community moat with zero paid-acquisition cost. Profitable + YC + PayPal Ventures backing signals strong fundamentals. <strong>However:</strong> the September 2025 Series B almost certainly places the post-money valuation above £80M — outside Raz's ~£70M comfort zone. Recommend keeping warm: reach out now to plant the seed, revisit acquisition in 12–18 months when the next liquidity pressure builds.
+        <div class="rationale-title">Why it's watch list — not ranked higher</div>
+        <div class="rationale-text">Best EU strategic fit on the entire longlist. 600k French users actively managing multi-asset portfolios — ideal eToro convert. 75M YouTube views is a zero-cost acquisition moat. Profitable + YC + PayPal Ventures. <strong>However:</strong> September 2025 Series B puts valuation above £80M. Start the relationship now — push for acquisition in 12–18 months when next liquidity pressure builds.
           <div class="risk-row">
             <span class="risk-green">✓ Best EU investor-profile fit by far</span>
             <span class="risk-green">✓ Profitable + growing fast</span>
-            <span class="risk-green">✓ Community moat (YouTube 75M views)</span>
+            <span class="risk-green">✓ YouTube community moat (75M views)</span>
             <span class="risk-red">✗ Post-money likely above £70–80M threshold</span>
             <span class="risk-amber">△ Just closed Series B — too early for exit conversation</span>
-            <span class="risk-amber">△ PFM-only, no EMI — limited licence value</span>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-</div><!-- /cards -->
+</div>
 
-<!-- WHY EXCLUDED -->
 <div class="excluded-section">
-  <div class="excluded-header">
-    <span>Companies Reviewed but Excluded</span>
-  </div>
+  <div class="excluded-header"><span>Companies Reviewed but Excluded</span></div>
   <div class="excl-items">
-    <div class="excl-item">
-      <div class="excl-name">Emma (UK)</div>
-      <div class="excl-reason"><strong>Effectively dormant.</strong> Only £7.6M raised total. 9 employees as of 2025. Not responding per your meeting with Ofir. Valuation £35M (2021) — never updated. Not a viable acquisition.</div>
-    </div>
-    <div class="excl-item">
-      <div class="excl-name">Moneyhub (UK)</div>
-      <div class="excl-reason"><strong>Already owned by MMI Holdings</strong> (South African insurer, Johannesburg-listed). Not a clean standalone acquisition. Would require secondary buyout of institutional parent — complex, unlikely.</div>
-    </div>
-    <div class="excl-item">
-      <div class="excl-name">Monese (UK/EU)</div>
-      <div class="excl-reason"><strong>Acquired by Pockit</strong> — which is already in Ofir's original pipeline. Redundant. Pockit is the vehicle to acquire.</div>
-    </div>
-    <div class="excl-item">
-      <div class="excl-name">Plum (UK/EU)</div>
-      <div class="excl-reason">Strong product but total raise estimated <strong>well above £50M</strong> with active growth trajectory and institutional backers. Not likely motivated to sell at Raz's threshold.</div>
-    </div>
-    <div class="excl-item">
-      <div class="excl-name">Dreams (Sweden)</div>
-      <div class="excl-reason">Good behavioural savings UX but <strong>primarily Sweden/Nordics</strong> — limited UK IBAN programme fit. Team small (~30–50). Lower strategic priority vs UK-focused picks.</div>
-    </div>
-    <div class="excl-item">
-      <div class="excl-name">Meniga (EU/UK)</div>
-      <div class="excl-reason">B2B tech provider to banks — <strong>no consumer product</strong>. Raz said selling internally requires a product that can be showcased. Meniga fails this test.</div>
-    </div>
+    <div class="excl-item"><div class="excl-name">ZEN.com</div><div class="excl-reason"><strong>Redundant licences.</strong> eToro Money already holds UK FCA EMI (eToro Money UK Ltd) + EU EMI with full passporting (eToro Money Malta). ZEN's dual-licence rationale — its primary asset — adds zero regulatory value to eToro.</div></div>
+    <div class="excl-item"><div class="excl-name">Emma (UK)</div><div class="excl-reason"><strong>Effectively dormant.</strong> Only £7.6M raised. 9 employees as of 2025. Not responding per Ofir's outreach. Valuation £35M (2021) — never updated. Not viable.</div></div>
+    <div class="excl-item"><div class="excl-name">Moneyhub (UK)</div><div class="excl-reason"><strong>Already owned by MMI Holdings</strong> (South African insurer, JSE-listed). Not a clean standalone acquisition — requires secondary buyout of institutional parent.</div></div>
+    <div class="excl-item"><div class="excl-name">Monese (UK/EU)</div><div class="excl-reason"><strong>Acquired by Pockit</strong> (Oct 2024) — covered by #4 on this shortlist. Redundant as a standalone target.</div></div>
+    <div class="excl-item"><div class="excl-name">Plum (UK/EU)</div><div class="excl-reason">Strong product but valuation ~$172M — <strong>well above Raz's £70M threshold</strong>. Active growth trajectory with institutional backers not motivated to sell.</div></div>
+    <div class="excl-item"><div class="excl-name">Dreams (Sweden)</div><div class="excl-reason">Good behavioural savings UX but <strong>primarily Nordics-focused</strong> with limited UK IBAN fit. Lower strategic priority vs UK-focused picks.</div></div>
   </div>
 </div>
 
