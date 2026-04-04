@@ -1009,17 +1009,17 @@
     </div>
   </div>
 
-  <!-- Slide 4: Acquisition Targets Table -->
+  <!-- Slide 4: Tier 1 — High Priority -->
   <div class="slide" data-slide="3">
-    <h2 class="section-title">02 — Acquisition Targets</h2>
-    <h3 class="slide-heading">Acquisition Targets — Strategic Fit & Value <span style="font-size:14px; font-weight:400; color:var(--etoro-gray); margin-left:12px;">Click row for details · Headers to sort · Filters below · Drag to reorder</span></h3>
+    <h2 class="section-title">02 — Tier 1: High Priority</h2>
+    <h3 class="slide-heading">Tier 1 — High Priority Targets <span style="font-size:14px; font-weight:400; color:#22c55e; margin-left:12px;">9 companies · Recommended for immediate pursuit</span></h3>
+    <p style="font-size:15px; color:#94a3b8; margin-bottom:16px; max-width:900px;">Strong strategic fit, realistic valuations, and clear licensing or product value. These targets fill eToro Money's biggest gaps — banking, lending, PFM, and card infrastructure.</p>
     <div class="slide-content-scroll">
       <div class="table-container">
-        <table id="mainTable">
+        <table id="tier1Table">
           <thead>
             <tr>
-              <th data-col="0" data-type="numeric">Tier <span class="sort-icon">▲▼</span></th>
-              <th data-col="1" data-type="string"><span></span>Company <span class="sort-icon">▲▼</span></th>
+              <th data-col="1" data-type="string">Company <span class="sort-icon">▲▼</span></th>
               <th data-col="2" data-type="string">Region <span class="sort-icon">▲▼</span></th>
               <th data-col="3" data-type="string">Core Services <span class="sort-icon">▲▼</span></th>
               <th data-col="4" data-type="string">License <span class="sort-icon">▲▼</span></th>
@@ -1028,27 +1028,67 @@
               <th data-col="7" data-type="numeric">Valuation <span class="sort-icon">▲▼</span></th>
               <th data-col="8" data-type="string">What eToro Gains <span class="sort-icon">▲▼</span></th>
             </tr>
-            <tr class="filter-row">
-              <th><select class="col-filter" data-filter-col="tier"><option value="">All</option></select></th>
-              <th></th>
-              <th><select class="col-filter" data-filter-col="region"><option value="">All</option></select></th>
-              <th></th>
-              <th><select class="col-filter" data-filter-col="license"><option value="">All</option></select></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-            </tr>
           </thead>
-          <tbody id="mainTableBody">
-          </tbody>
+          <tbody id="tier1Body"></tbody>
         </table>
       </div>
     </div>
   </div>
 
-  <!-- Slide 5: Thank You -->
-  <div class="slide slide-title" data-slide="4">
+  <!-- Slide 5: Tier 2 — Strategic but Conditional -->
+  <div class="slide" data-slide="4">
+    <h2 class="section-title">03 — Tier 2: Conditional</h2>
+    <h3 class="slide-heading">Tier 2 — Strategic but Conditional <span style="font-size:14px; font-weight:400; color:#eab308; margin-left:12px;">3 companies · Valuable with caveats</span></h3>
+    <p style="font-size:15px; color:#94a3b8; margin-bottom:16px; max-width:900px;">These targets offer real strategic value but come with higher complexity — regulatory burden, integration challenges, or less consumer-facing products that require additional investment to realise.</p>
+    <div class="slide-content-scroll">
+      <div class="table-container">
+        <table id="tier2Table">
+          <thead>
+            <tr>
+              <th data-col="1" data-type="string">Company <span class="sort-icon">▲▼</span></th>
+              <th data-col="2" data-type="string">Region <span class="sort-icon">▲▼</span></th>
+              <th data-col="3" data-type="string">Core Services <span class="sort-icon">▲▼</span></th>
+              <th data-col="4" data-type="string">License <span class="sort-icon">▲▼</span></th>
+              <th data-col="5" data-type="string">Users <span class="sort-icon">▲▼</span></th>
+              <th data-col="6" data-type="numeric">Team <span class="sort-icon">▲▼</span></th>
+              <th data-col="7" data-type="numeric">Valuation <span class="sort-icon">▲▼</span></th>
+              <th data-col="8" data-type="string">What eToro Gains <span class="sort-icon">▲▼</span></th>
+            </tr>
+          </thead>
+          <tbody id="tier2Body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 6: Tier 3 — Low Priority / Watch List -->
+  <div class="slide" data-slide="5">
+    <h2 class="section-title">04 — Tier 3: Low Priority</h2>
+    <h3 class="slide-heading">Tier 3 — Low Priority / Watch List <span style="font-size:14px; font-weight:400; color:#ef4444; margin-left:12px;">5 companies · Monitor or partnership only</span></h3>
+    <p style="font-size:15px; color:#94a3b8; margin-bottom:16px; max-width:900px;">Limited strategic fit due to high valuations, weak EU/UK presence, niche products, or unclear corporate structures. Some are worth monitoring for future opportunities.</p>
+    <div class="slide-content-scroll">
+      <div class="table-container">
+        <table id="tier3Table">
+          <thead>
+            <tr>
+              <th data-col="1" data-type="string">Company <span class="sort-icon">▲▼</span></th>
+              <th data-col="2" data-type="string">Region <span class="sort-icon">▲▼</span></th>
+              <th data-col="3" data-type="string">Core Services <span class="sort-icon">▲▼</span></th>
+              <th data-col="4" data-type="string">License <span class="sort-icon">▲▼</span></th>
+              <th data-col="5" data-type="string">Users <span class="sort-icon">▲▼</span></th>
+              <th data-col="6" data-type="numeric">Team <span class="sort-icon">▲▼</span></th>
+              <th data-col="7" data-type="numeric">Valuation <span class="sort-icon">▲▼</span></th>
+              <th data-col="8" data-type="string">What eToro Gains <span class="sort-icon">▲▼</span></th>
+            </tr>
+          </thead>
+          <tbody id="tier3Body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 7: Thank You -->
+  <div class="slide slide-title" data-slide="6">
     <img src="https://companieslogo.com/img/orig/ETOR_BIG.D-b111a9c3.svg?t=1747411391" alt="eToro" class="title-logo">
     <h1>Thank You</h1>
     <p class="subtitle">Ready to transform eToro into a primary financial hub</p>
@@ -1266,46 +1306,18 @@
     }
   ];
 
-  // ── Active filters state ──
-  const activeFilters = {};
-  let displayOrder = companies.map((_, i) => i);
-
-  // ── Populate filter dropdowns ──
-  function populateFilters() {
-    document.querySelectorAll('.col-filter').forEach(sel => {
-      const key = sel.dataset.filterCol;
-      const vals = [...new Set(companies.map(c => String(c[key])))].sort();
-      vals.forEach(v => {
-        const opt = document.createElement('option');
-        opt.value = v; opt.textContent = key === 'tier' ? 'Tier ' + v : v;
-        sel.appendChild(opt);
-      });
-      sel.addEventListener('change', () => {
-        if (sel.value) activeFilters[key] = sel.value;
-        else delete activeFilters[key];
-        renderMainTable(currentSort.col, currentSort.dir);
-      });
-    });
-  }
-
-  let currentSort = { col: undefined, dir: undefined };
-
-  // ── Render Main Table ──
-  function renderMainTable(sortCol, sortDir) {
-    currentSort = { col: sortCol, dir: sortDir };
-    const tbody = document.getElementById('mainTableBody');
+  // ── Render Tier Table ──
+  function renderTierTable(tbodyId, tierNum, sortCol, sortDir) {
+    const tbody = document.getElementById(tbodyId);
     if (!tbody) return;
-    let data = displayOrder.map(i => companies[i]);
-
-    Object.keys(activeFilters).forEach(key => {
-      data = data.filter(c => String(c[key]) === activeFilters[key]);
-    });
+    let data = companies.filter(c => c.tier === tierNum);
 
     if (sortCol !== undefined) {
       data.sort((a, b) => {
         let va, vb;
-        const cols = ['tier','name','region','services','license','users','teamSort','valSort','gains'];
+        const cols = [null,'name','region','services','license','users','teamSort','valSort','gains'];
         const key = cols[sortCol];
+        if (!key) return 0;
         va = a[key]; vb = b[key];
         if (typeof va === 'string') { va = va.toLowerCase(); vb = vb.toLowerCase(); }
         if (va < vb) return sortDir === 'asc' ? -1 : 1;
@@ -1319,10 +1331,7 @@
       tr.className = 'data-row';
       tr.draggable = true;
       tr.dataset.companyName = c.name;
-      const tierColors = {1:'#22c55e', 2:'#eab308', 3:'#ef4444'};
-      const tierLabels = {1:'Tier 1', 2:'Tier 2', 3:'Tier 3'};
       tr.innerHTML = `
-        <td><span style="color:${tierColors[c.tier]};font-weight:700;font-size:11px;">${tierLabels[c.tier]}</span></td>
         <td><span class="drag-handle" title="Drag to reorder">⠿</span><span class="expand-icon">›</span><a href="${c.url}" target="_blank" class="company-link" onclick="event.stopPropagation()">${c.name} <span class="link-icon">↗</span></a></td>
         <td>${c.region}</td>
         <td>${c.services}</td>
@@ -1333,7 +1342,7 @@
         <td>${c.gains}</td>`;
       tr.addEventListener('click', (e) => {
         if (e.target.closest('.drag-handle')) return;
-        toggleDetail(tr, c, 9);
+        toggleDetail(tr, c, 8);
       });
       initDragRow(tr);
       tbody.appendChild(tr);
@@ -1462,9 +1471,12 @@
     });
   }
 
-  populateFilters();
-  renderMainTable();
-  initSorting('mainTable', renderMainTable);
+  renderTierTable('tier1Body', 1);
+  renderTierTable('tier2Body', 2);
+  renderTierTable('tier3Body', 3);
+  initSorting('tier1Table', (col, dir) => renderTierTable('tier1Body', 1, col, dir));
+  initSorting('tier2Table', (col, dir) => renderTierTable('tier2Body', 2, col, dir));
+  initSorting('tier3Table', (col, dir) => renderTierTable('tier3Body', 3, col, dir));
 
   // ── Slide Navigation ──
   let currentSlide = 0;
