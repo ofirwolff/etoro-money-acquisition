@@ -798,7 +798,14 @@
 
   .slide-content-scroll::-webkit-scrollbar { width: 4px; }
   .slide-content-scroll::-webkit-scrollbar-track { background: transparent; }
-  .slide-content-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+    .slide-content-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+
+  /* M2020 Conference Targets */
+  .m2020-fit { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; white-space: nowrap; }
+  .m2020-fit.target { background: rgba(239,68,68,0.15); color: #ef4444; }
+  .m2020-fit.acquire { background: rgba(249,115,22,0.15); color: #f97316; }
+  .m2020-fit.infra { background: rgba(234,179,8,0.15); color: #eab308; }
+  .m2020-fit.scout { background: rgba(59,130,246,0.15); color: #3b82f6; }
 
   /* Persistent logo */
   .slide-logo {
@@ -1087,15 +1094,34 @@
     </div>
   </div>
 
-  <!-- Slide 7: Thank You -->
-  <div class="slide slide-title" data-slide="6">
+  <!-- Slide 7: M2020 EU 2026 Meeting Targets -->
+  <div class="slide" data-slide="6">
+    <h2 class="section-title">06 — Conference Targets</h2>
+    <h3 class="slide-heading">Money 20/20 EU 2026 — Meeting Targets</h3>
+    <div class="slide-content-scroll">
+      <table class="data-table" id="m2020Table">
+        <thead><tr>
+          <th data-sort="0">Fit Level</th>
+          <th data-sort="1">Company</th>
+          <th data-sort="2">Category</th>
+          <th data-sort="3">Main Features</th>
+          <th data-sort="4">Valuation</th>
+          <th data-sort="5">Why Meet</th>
+        </tr></thead>
+        <tbody id="m2020Body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Slide 8: Thank You -->
+  <div class="slide slide-title" data-slide="7">
     <img src="https://companieslogo.com/img/orig/ETOR_BIG.D-b111a9c3.svg?t=1747411391" alt="eToro" class="title-logo">
     <h1>Thank You</h1>
     <p class="subtitle">Ready to transform eToro into a primary financial hub</p>
   </div>
 </div>
 
-<div class="slide-number" id="slideNumber">1 / 12</div>
+<div class="slide-number" id="slideNumber">1 / 8</div>
 
 <div class="nav-controls">
   <button class="nav-btn" onclick="changeSlide(-1)">←</button>
@@ -1477,6 +1503,53 @@
   initSorting('tier1Table', (col, dir) => renderTierTable('tier1Body', 1, col, dir));
   initSorting('tier2Table', (col, dir) => renderTierTable('tier2Body', 2, col, dir));
   initSorting('tier3Table', (col, dir) => renderTierTable('tier3Body', 3, col, dir));
+
+  // M2020 EU 2026 Meeting Targets
+  const m2020Companies = [
+    { fit: 'Target', name: 'Paynetics', url: 'https://www.paynetics.digital/', cat: 'Card Infra (Tier 1)', features: 'EMI, Visa/MC principal member, card issuing + acquiring, IBANs, Open Banking', val: '$30-70M', why: 'Direct Tier 1 acquisition target. Face-to-face meeting opportunity.' },
+    { fit: 'Acquire?', name: 'Cleo', url: 'https://meetcleo.com/', cat: 'AI PFM', features: 'AI chatbot for budgeting, Autopilot money management, spending analytics, salary advance', val: '$500M+', why: 'Leading AI PFM. Potential bolt-on for eToro Money consumer engagement.' },
+    { fit: 'Acquire?', name: 'Yapily', url: 'https://www.yapily.com/', cat: 'Open Banking', features: 'API platform connecting to 2000+ banks, AIS + PIS, VRP support, data enrichment', val: '$100-200M', why: 'Open Banking infra for account aggregation + payments.' },
+    { fit: 'Acquire?', name: 'Salt Edge', url: 'https://www.saltedge.com/', cat: 'Open Banking', features: 'PSD2/Open Banking APIs, account aggregation, financial data enrichment', val: '$40-80M', why: 'Could power eToro Money multi-bank view + PFM features.' },
+    { fit: 'Acquire?', name: 'Keel Money', url: 'https://www.keelmoney.com/', cat: 'BaaS Startup', features: 'Banking-as-a-Service for embedded finance, modular API-first platform', val: '<$10M', why: 'Small BaaS startup. Early-stage acqui-hire or technology acquisition.' },
+    { fit: 'Acquire?', name: 'Doshi', url: 'https://www.doshi.app/', cat: 'Financial Ed', features: 'Financial education app, gamified money management for young adults', val: '<$5M', why: 'Tiny fintech. Consumer engagement angle for younger demographic.' },
+    { fit: 'Infra', name: 'Modulr', url: 'https://www.modulrfinance.com/', cat: 'Payments Infra', features: 'Payment APIs, virtual accounts, real-time payments, direct Faster Payments + SEPA access', val: '$700M+', why: 'Key payments infra provider. Partnership or API integration opportunity.' },
+    { fit: 'Infra', name: 'TrueLayer', url: 'https://truelayer.com/', cat: 'Open Banking', features: 'Open Banking payments, instant bank pay, VRP, payouts, account data APIs', val: '$700M+', why: 'Premium Open Banking provider. Could replace or supplement existing integrations.' },
+    { fit: 'Infra', name: 'Thredd', url: 'https://www.thredd.com/', cat: 'Card Processing', features: 'Global card issuing processor, Visa/MC certified, digital-first program management', val: '$200-400M', why: 'Card processing partner. Could support eToro Money card infrastructure.' },
+    { fit: 'Infra', name: 'Monavate', url: 'https://monavate.com/', cat: 'BaaS/Cards', features: 'Card issuing, BIN sponsorship, programme management, e-money solutions', val: '$30-60M', why: 'BaaS provider with card issuing capabilities relevant to eToro Money.' },
+    { fit: 'Infra', name: 'Plaid', url: 'https://plaid.com/', cat: 'Financial APIs', features: 'Account linking, transaction data, identity verification, income verification', val: '$6B+', why: 'Market leader in financial data connectivity. Strategic relationship building.' },
+    { fit: 'Infra', name: 'Personetics', url: 'https://personetics.com/', cat: 'AI/PFM B2B', features: 'AI-powered financial insights, personalized money management, self-driving finance', val: '$200-400M', why: 'B2B AI insights provider. Could power eToro Money smart features.' },
+    { fit: 'Scout', name: 'ClearScore', url: 'https://www.clearscore.com/', cat: 'Credit/PFM', features: 'Free credit score, credit marketplace, financial wellbeing tools, Protect insurance', val: '$1B+', why: 'Competitive intel. Large UK consumer fintech with similar audience.' },
+    { fit: 'Scout', name: 'Collinson Group', url: 'https://www.collinsongroup.com/', cat: 'Loyalty/Benefits', features: 'Airport lounges (Priority Pass), loyalty programs, travel insurance, benefits platforms', val: '$2B+', why: 'Benefits & loyalty partner. Could enhance eToro Money premium offerings.' },
+    { fit: 'Scout', name: 'Tide', url: 'https://www.tide.co/', cat: 'SMB Banking', features: 'Business accounts, invoicing, expense management, credit products for SMBs', val: '$600M+', why: 'Competitive intel. If eToro Money expands to SMB segment.' }
+  ];
+
+  function renderM2020(sortCol, sortDir) {
+    const tbody = document.getElementById('m2020Body');
+    if (!tbody) return;
+    tbody.innerHTML = '';
+    let sorted = [...m2020Companies];
+    if (sortCol !== undefined && sortDir) {
+      const keys = ['fit','name','cat','features','val','why'];
+      const key = keys[sortCol];
+      sorted.sort((a, b) => {
+        const va = (a[key] || '').toLowerCase(), vb = (b[key] || '').toLowerCase();
+        return sortDir === 'asc' ? va.localeCompare(vb) : vb.localeCompare(va);
+      });
+    }
+    const fitClasses = {'Target':'target','Acquire?':'acquire','Infra':'infra','Scout':'scout'};
+    const fitLabels = {'Target':'🔴 Target','Acquire?':'🟠 Acquire?','Infra':'🟡 Infra','Scout':'🔵 Scout'};
+    sorted.forEach(c => {
+      const tr = document.createElement('tr');
+      tr.className = 'data-row';
+      tr.innerHTML = '<td><span class="m2020-fit ' + (fitClasses[c.fit]||'') + '">' + (fitLabels[c.fit]||c.fit) + '</span></td>' +
+        '<td><a href="' + c.url + '" target="_blank" style="color:var(--etoro-blue);text-decoration:none;">' + c.name + '</a></td>' +
+        '<td>' + c.cat + '</td><td style="font-size:12px;">' + c.features + '</td>' +
+        '<td style="white-space:nowrap;">' + c.val + '</td><td style="font-size:12px;">' + c.why + '</td>';
+      tbody.appendChild(tr);
+    });
+  }
+  renderM2020();
+  initSorting('m2020Table', renderM2020);
 
   // ── Slide Navigation ──
   let currentSlide = 0;
