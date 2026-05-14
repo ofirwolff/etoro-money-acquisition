@@ -806,6 +806,7 @@
   .m2020-fit.acquire { background: rgba(249,115,22,0.15); color: #f97316; }
   .m2020-fit.infra { background: rgba(234,179,8,0.15); color: #eab308; }
   .m2020-fit.scout { background: rgba(59,130,246,0.15); color: #3b82f6; }
+  .m2020-fit.vendor { background: rgba(168,85,247,0.15); color: #a855f7; }
 
   /* Persistent logo */
   .slide-logo {
@@ -1507,20 +1508,20 @@
   // M2020 EU 2026 Meeting Targets
   const m2020Companies = [
     { fit: 'Target', name: 'Paynetics', url: 'https://www.paynetics.digital/', cat: 'Card Infra (Tier 1)', features: 'EMI, Visa/MC principal member, card issuing + acquiring, IBANs, Open Banking', val: '$30-70M', why: 'Direct Tier 1 acquisition target. Face-to-face meeting opportunity.' },
-    { fit: 'Acquire?', name: 'Cleo', url: 'https://meetcleo.com/', cat: 'AI PFM', features: 'AI chatbot for budgeting, Autopilot money management, spending analytics, salary advance', val: '$500M+', why: 'Leading AI PFM. Potential bolt-on for eToro Money consumer engagement.' },
-    { fit: 'Acquire?', name: 'Yapily', url: 'https://www.yapily.com/', cat: 'Open Banking', features: 'API platform connecting to 2000+ banks, AIS + PIS, VRP support, data enrichment', val: '$100-200M', why: 'Open Banking infra for account aggregation + payments.' },
     { fit: 'Acquire?', name: 'Salt Edge', url: 'https://www.saltedge.com/', cat: 'Open Banking', features: 'PSD2/Open Banking APIs, account aggregation, financial data enrichment', val: '$40-80M', why: 'Could power eToro Money multi-bank view + PFM features.' },
+    { fit: 'Acquire?', name: 'Monavate', url: 'https://monavate.com/', cat: 'BaaS/Cards', features: 'Card issuing, BIN sponsorship, programme management, e-money solutions', val: '$30-60M', why: 'BaaS provider with card issuing capabilities relevant to eToro Money.' },
     { fit: 'Acquire?', name: 'Keel Money', url: 'https://www.keelmoney.com/', cat: 'BaaS Startup', features: 'Banking-as-a-Service for embedded finance, modular API-first platform', val: '<$10M', why: 'Small BaaS startup. Early-stage acqui-hire or technology acquisition.' },
     { fit: 'Acquire?', name: 'Doshi', url: 'https://www.doshi.app/', cat: 'Financial Ed', features: 'Financial education app, gamified money management for young adults', val: '<$5M', why: 'Tiny fintech. Consumer engagement angle for younger demographic.' },
-    { fit: 'Infra', name: 'Modulr', url: 'https://www.modulrfinance.com/', cat: 'Payments Infra', features: 'Payment APIs, virtual accounts, real-time payments, direct Faster Payments + SEPA access', val: '$700M+', why: 'Key payments infra provider. Partnership or API integration opportunity.' },
-    { fit: 'Infra', name: 'TrueLayer', url: 'https://truelayer.com/', cat: 'Open Banking', features: 'Open Banking payments, instant bank pay, VRP, payouts, account data APIs', val: '$700M+', why: 'Premium Open Banking provider. Could replace or supplement existing integrations.' },
-    { fit: 'Infra', name: 'Thredd', url: 'https://www.thredd.com/', cat: 'Card Processing', features: 'Global card issuing processor, Visa/MC certified, digital-first program management', val: '$200-400M', why: 'Card processing partner. Could support eToro Money card infrastructure.' },
-    { fit: 'Infra', name: 'Monavate', url: 'https://monavate.com/', cat: 'BaaS/Cards', features: 'Card issuing, BIN sponsorship, programme management, e-money solutions', val: '$30-60M', why: 'BaaS provider with card issuing capabilities relevant to eToro Money.' },
-    { fit: 'Infra', name: 'Plaid', url: 'https://plaid.com/', cat: 'Financial APIs', features: 'Account linking, transaction data, identity verification, income verification', val: '$6B+', why: 'Market leader in financial data connectivity. Strategic relationship building.' },
-    { fit: 'Infra', name: 'Personetics', url: 'https://personetics.com/', cat: 'AI/PFM B2B', features: 'AI-powered financial insights, personalized money management, self-driving finance', val: '$200-400M', why: 'B2B AI insights provider. Could power eToro Money smart features.' },
-    { fit: 'Scout', name: 'ClearScore', url: 'https://www.clearscore.com/', cat: 'Credit/PFM', features: 'Free credit score, credit marketplace, financial wellbeing tools, Protect insurance', val: '$1B+', why: 'Competitive intel. Large UK consumer fintech with similar audience.' },
-    { fit: 'Scout', name: 'Collinson Group', url: 'https://www.collinsongroup.com/', cat: 'Loyalty/Benefits', features: 'Airport lounges (Priority Pass), loyalty programs, travel insurance, benefits platforms', val: '$2B+', why: 'Benefits & loyalty partner. Could enhance eToro Money premium offerings.' },
-    { fit: 'Scout', name: 'Tide', url: 'https://www.tide.co/', cat: 'SMB Banking', features: 'Business accounts, invoicing, expense management, credit products for SMBs', val: '$600M+', why: 'Competitive intel. If eToro Money expands to SMB segment.' }
+    { fit: 'Vendor', name: 'Cleo', url: 'https://meetcleo.com/', cat: 'AI PFM', features: 'AI chatbot for budgeting, Autopilot money management, spending analytics, salary advance', val: '$500M+', why: 'Leading AI PFM. Potential vendor/partner for consumer engagement.' },
+    { fit: 'Vendor', name: 'Yapily', url: 'https://www.yapily.com/', cat: 'Open Banking', features: 'API platform connecting to 2000+ banks, AIS + PIS, VRP support, data enrichment', val: '$100-200M', why: 'Open Banking infra vendor for account aggregation + payments.' },
+    { fit: 'Vendor', name: 'Modulr', url: 'https://www.modulrfinance.com/', cat: 'Payments Infra', features: 'Payment APIs, virtual accounts, real-time payments, direct Faster Payments + SEPA access', val: '$700M+', why: 'Key payments infra vendor. Partnership or API integration opportunity.' },
+    { fit: 'Vendor', name: 'TrueLayer', url: 'https://truelayer.com/', cat: 'Open Banking', features: 'Open Banking payments, instant bank pay, VRP, payouts, account data APIs', val: '$700M+', why: 'Premium Open Banking vendor. Could replace or supplement existing integrations.' },
+    { fit: 'Vendor', name: 'Thredd', url: 'https://www.thredd.com/', cat: 'Card Processing', features: 'Global card issuing processor, Visa/MC certified, digital-first program management', val: '$200-400M', why: 'Card processing vendor. Could support eToro Money card infrastructure.' },
+    { fit: 'Vendor', name: 'Plaid', url: 'https://plaid.com/', cat: 'Financial APIs', features: 'Account linking, transaction data, identity verification, income verification', val: '$6B+', why: 'Market leader in financial data connectivity. Strategic relationship building.' },
+    { fit: 'Vendor', name: 'Personetics', url: 'https://personetics.com/', cat: 'AI/PFM B2B', features: 'AI-powered financial insights, personalized money management, self-driving finance', val: '$200-400M', why: 'B2B AI insights vendor. Could power eToro Money smart features.' },
+    { fit: 'Vendor', name: 'ClearScore', url: 'https://www.clearscore.com/', cat: 'Credit/PFM', features: 'Free credit score, credit marketplace, financial wellbeing tools, Protect insurance', val: '$1B+', why: 'Large UK consumer fintech. Potential vendor for credit/PFM features.' },
+    { fit: 'Vendor', name: 'Collinson Group', url: 'https://www.collinsongroup.com/', cat: 'Loyalty/Benefits', features: 'Airport lounges (Priority Pass), loyalty programs, travel insurance, benefits platforms', val: '$2B+', why: 'Benefits & loyalty vendor. Could enhance eToro Money premium offerings.' },
+    { fit: 'Vendor', name: 'Tide', url: 'https://www.tide.co/', cat: 'SMB Banking', features: 'Business accounts, invoicing, expense management, credit products for SMBs', val: '$600M+', why: 'Potential vendor/partner if eToro Money expands to SMB segment.' }
   ];
 
   function renderM2020(sortCol, sortDir) {
@@ -1535,10 +1536,20 @@
         const va = (a[key] || '').toLowerCase(), vb = (b[key] || '').toLowerCase();
         return sortDir === 'asc' ? va.localeCompare(vb) : vb.localeCompare(va);
       });
+    } else {
+      const fitOrder = {'Target':0,'Acquire?':1,'Vendor':2};
+      sorted.sort((a,b) => (fitOrder[a.fit]||9) - (fitOrder[b.fit]||9));
     }
-    const fitClasses = {'Target':'target','Acquire?':'acquire','Infra':'infra','Scout':'scout'};
-    const fitLabels = {'Target':'🔴 Target','Acquire?':'🟠 Acquire?','Infra':'🟡 Infra','Scout':'🔵 Scout'};
+    const fitClasses = {'Target':'target','Acquire?':'acquire','Infra':'infra','Scout':'scout','Vendor':'vendor'};
+    const fitLabels = {'Target':'\ud83d\udd34 Target','Acquire?':'\ud83d\udfe0 Acquire?','Infra':'\ud83d\udfe1 Infra','Scout':'\ud83d\udd35 Scout','Vendor':'\ud83d\udfe3 Potential Vendor'};
+    let lastFit = '';
     sorted.forEach(c => {
+      if (!sortCol && sortCol !== 0 && c.fit !== lastFit && c.fit === 'Vendor') {
+        const sep = document.createElement('tr');
+        sep.innerHTML = '<td colspan="6" style="padding:12px 8px 6px;font-weight:700;font-size:13px;color:#a855f7;border-bottom:1px solid rgba(168,85,247,0.3);background:rgba(168,85,247,0.05);">\ud83d\udfe3 Potential Vendors (>)</td>';
+        tbody.appendChild(sep);
+      }
+      lastFit = c.fit;
       const tr = document.createElement('tr');
       tr.className = 'data-row';
       tr.innerHTML = '<td><span class="m2020-fit ' + (fitClasses[c.fit]||'') + '">' + (fitLabels[c.fit]||c.fit) + '</span></td>' +
