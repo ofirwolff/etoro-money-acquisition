@@ -810,11 +810,11 @@
   .m2020-fit.emi { background: rgba(16,185,129,0.15); color: #10b981; }
   .m2020-fit.ibancard { background: rgba(6,182,212,0.15); color: #06b6d4; }
   .vendor-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; padding: 10px 0; }
-  .vendor-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 14px; text-align: center; transition: all 0.2s; }
+  .vendor-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; padding: 16px 14px; text-align: center; transition: all 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
   .vendor-card:hover { background: rgba(255,255,255,0.08); border-color: var(--etoro-blue); transform: translateY(-2px); }
-  .vendor-card .v-name { font-weight: 600; font-size: 14px; color: #fff; margin-bottom: 4px; }
+  .vendor-card .v-name { font-weight: 700; font-size: 15px; color: #fff; margin-bottom: 6px; }
   .vendor-card .v-cat { font-size: 11px; color: var(--etoro-gray); }
-  .vendor-cat-header { grid-column: 1 / -1; padding: 8px 0 4px; font-size: 12px; font-weight: 700; color: var(--etoro-blue); text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid rgba(107,210,176,0.2); }
+  .vendor-cat-header { grid-column: 1 / -1; padding: 14px 0 6px; font-size: 13px; font-weight: 700; color: var(--etoro-blue); text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px solid rgba(107,210,176,0.3); margin-top: 4px; }
 
   /* Persistent logo */
   .slide-logo {
@@ -1127,7 +1127,7 @@
     <h2 class="section-title">07 — Current Partners</h2>
     <h3 class="slide-heading">eToro Money — Existing Vendor Ecosystem</h3>
     <div class="slide-content-scroll">
-      <div id="vendorGrid" class="vendor-grid"></div>
+      <div id="vendorGrid" class="vendor-grid"><noscript><p style="color:#fff;text-align:center;">Enable JavaScript to see vendor cards.</p></noscript></div>
     </div>
   </div>
 
