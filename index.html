@@ -1515,9 +1515,7 @@
     });
   }
 
-  renderTierTable('tier1Body', 1);
-  renderTierTable('tier2Body', 2);
-  renderTierTable('tier3Body', 3);
+  try { renderTierTable('tier1Body', 1); renderTierTable('tier2Body', 2); renderTierTable('tier3Body', 3); } catch(e) { console.error('Tier render error:', e); }
   initSorting('tier1Table', (col, dir) => renderTierTable('tier1Body', 1, col, dir));
   initSorting('tier2Table', (col, dir) => renderTierTable('tier2Body', 2, col, dir));
   initSorting('tier3Table', (col, dir) => renderTierTable('tier3Body', 3, col, dir));
@@ -1629,8 +1627,7 @@
     tr.after(d);
   }
 
-  renderM2020();
-  initSorting('m2020Table', renderM2020);
+  try { renderM2020(); initSorting('m2020Table', renderM2020); } catch(e) { console.error('M2020 render error:', e); }
 
   // eToro Existing Vendors
   const etoroVendors = [
@@ -1659,7 +1656,7 @@
     { name: 'Trustly', cat: 'Open Banking Payments' }
   ];
 
-  (function renderVendors() {
+  try { (function renderVendors() {
     const grid = document.getElementById('vendorGrid');
     if (!grid) return;
     const cats = [...new Set(etoroVendors.map(v => v.cat))];
@@ -1675,7 +1672,7 @@
         grid.appendChild(card);
       });
     });
-  })();
+  })(); } catch(e) { console.error('Vendor render error:', e); }
 
   // ── Slide Navigation ──
   let currentSlide = 0;
