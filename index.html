@@ -1147,6 +1147,7 @@
 </div>
 
 <script>
+try {
   const logoUrl = 'https://companieslogo.com/img/orig/ETOR_BIG.D-b111a9c3.svg?t=1747411391';
   document.querySelectorAll('.slide:not(.slide-title)').forEach(slide => {
     const img = document.createElement('img');
@@ -1675,6 +1676,8 @@
   })(); } catch(e) { console.error('Vendor render error:', e); }
 
   // â”€â”€ 
+
+} catch(e) { console.error('Data script error:', e); }
 </script>
 <script>
 // Navigation - isolated so it always works
