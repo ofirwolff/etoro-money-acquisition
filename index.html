@@ -807,6 +807,14 @@
   .m2020-fit.infra { background: rgba(234,179,8,0.15); color: #eab308; }
   .m2020-fit.scout { background: rgba(59,130,246,0.15); color: #3b82f6; }
   .m2020-fit.vendor { background: rgba(168,85,247,0.15); color: #a855f7; }
+  .m2020-fit.emi { background: rgba(16,185,129,0.15); color: #10b981; }
+  .m2020-fit.ibancard { background: rgba(6,182,212,0.15); color: #06b6d4; }
+  .vendor-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; padding: 10px 0; }
+  .vendor-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 14px; text-align: center; transition: all 0.2s; }
+  .vendor-card:hover { background: rgba(255,255,255,0.08); border-color: var(--etoro-blue); transform: translateY(-2px); }
+  .vendor-card .v-name { font-weight: 600; font-size: 14px; color: #fff; margin-bottom: 4px; }
+  .vendor-card .v-cat { font-size: 11px; color: var(--etoro-gray); }
+  .vendor-cat-header { grid-column: 1 / -1; padding: 8px 0 4px; font-size: 12px; font-weight: 700; color: var(--etoro-blue); text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid rgba(107,210,176,0.2); }
 
   /* Persistent logo */
   .slide-logo {
@@ -1114,15 +1122,24 @@
     </div>
   </div>
 
-  <!-- Slide 8: Thank You -->
-  <div class="slide slide-title" data-slide="7">
+  <!-- Slide 8: eToro Existing Vendors -->
+  <div class="slide" data-slide="7">
+    <h2 class="section-title">07 — Current Partners</h2>
+    <h3 class="slide-heading">eToro Money — Existing Vendor Ecosystem</h3>
+    <div class="slide-content-scroll">
+      <div id="vendorGrid" class="vendor-grid"></div>
+    </div>
+  </div>
+
+  <!-- Slide 9: Thank You -->
+  <div class="slide slide-title" data-slide="8">
     <img src="https://companieslogo.com/img/orig/ETOR_BIG.D-b111a9c3.svg?t=1747411391" alt="eToro" class="title-logo">
     <h1>Thank You</h1>
     <p class="subtitle">Ready to transform eToro into a primary financial hub</p>
   </div>
 </div>
 
-<div class="slide-number" id="slideNumber">1 / 8</div>
+<div class="slide-number" id="slideNumber">1 / 9</div>
 
 <div class="nav-controls">
   <button class="nav-btn" onclick="changeSlide(-1)">←</button>
@@ -1507,21 +1524,31 @@
 
   // M2020 EU 2026 Meeting Targets
   const m2020Companies = [
-    { fit: 'Target', name: 'Paynetics', url: 'https://www.paynetics.digital/', cat: 'Card Infra (Tier 1)', features: 'EMI, Visa/MC principal member, card issuing + acquiring, IBANs, Open Banking', val: '$30-70M', why: 'Direct Tier 1 acquisition target. Face-to-face meeting opportunity.' },
+    { fit: 'Target', name: 'Paynetics', url: 'https://www.paynetics.digital/', cat: 'Card Infra (Tier 1)', features: 'EMI, Visa/MC principal member, card issuing + acquiring, IBANs, Open Banking', val: '$30-70M', why: 'Direct Tier 1 acquisition target.' },
     { fit: 'Acquire?', name: 'Salt Edge', url: 'https://www.saltedge.com/', cat: 'Open Banking', features: 'PSD2/Open Banking APIs, account aggregation, financial data enrichment', val: '$40-80M', why: 'Could power eToro Money multi-bank view + PFM features.' },
-    { fit: 'Acquire?', name: 'Monavate', url: 'https://monavate.com/', cat: 'BaaS/Cards', features: 'Card issuing, BIN sponsorship, programme management, e-money solutions', val: '$30-60M', why: 'BaaS provider with card issuing capabilities relevant to eToro Money.' },
-    { fit: 'Acquire?', name: 'Keel Money', url: 'https://www.keelmoney.com/', cat: 'BaaS Startup', features: 'Banking-as-a-Service for embedded finance, modular API-first platform', val: '<$10M', why: 'Small BaaS startup. Early-stage acqui-hire or technology acquisition.' },
-    { fit: 'Acquire?', name: 'Doshi', url: 'https://www.doshi.app/', cat: 'Financial Ed', features: 'Financial education app, gamified money management for young adults', val: '<$5M', why: 'Tiny fintech. Consumer engagement angle for younger demographic.' },
+    { fit: 'Acquire?', name: 'Monavate', url: 'https://monavate.com/', cat: 'BaaS/Cards', features: 'Card issuing, BIN sponsorship, programme management, e-money solutions', val: '$30-60M', why: 'BaaS with card issuing capabilities for eToro Money.' },
+    { fit: 'Acquire?', name: 'Keel Money', url: 'https://www.keelmoney.com/', cat: 'BaaS Startup', features: 'Core banking, virtual accounts, card issuance, payment processing, open banking', val: '<$10M', why: 'Small BaaS startup. Acqui-hire or tech acquisition. M2020 exhibitor.' },
+    { fit: 'Acquire?', name: 'Doshi', url: 'https://www.doshi.app/', cat: 'Financial Ed', features: 'Financial education app, gamified money management for young adults', val: '<$5M', why: 'Consumer engagement for younger demographic.' },
+    { fit: 'EMI', name: 'Wamo', url: 'https://wamo.io/', cat: 'SME Banking', features: 'EMI license (Finland), business accounts, multi-currency cards, invoicing, lending (Q2 2026)', val: '~$25M', why: 'EMI-licensed. 15K+ SME customers. Series A. EU passporting.' },
+    { fit: 'EMI', name: 'Enfuce', url: 'https://www.enfuce.com/', cat: 'Card Processing', features: 'EMI license (UK/FCA), cloud-native card processor, Visa/MC certified, issuer processing', val: '~$25M', why: 'EMI card processor. 4-Star M2020 Sponsor. Partnership potential.' },
+    { fit: 'EMI', name: 'Advapay', url: 'https://advapay.eu/', cat: 'Core Banking/BaaS', features: 'Core banking for EMI/PI holders, white-label digital banking, compliance tools', val: '<$10M', why: 'BaaS for EMIs. Confirmed M2020 (Estonian Pavilion). Acqui-hire.' },
+    { fit: 'EMI', name: 'PaySaxas', url: 'https://paysaxas.com/', cat: 'Business Payments', features: 'EMI license (Finland), global business payments, multi-currency, stablecoin support', val: '<$10M', why: 'Fresh EMI license. Business payments + crypto. Confirmed M2020.' },
+    { fit: 'EMI', name: 'Incard', url: 'https://incard.co/', cat: 'E-commerce Finance', features: 'EMI license (UK/FCA), card programs, cash flow management, invoicing for e-commerce', val: '~$15M', why: 'EMI fintech OS. $10M Series A. 500M+ processed.' },
+    { fit: 'IBAN/Card', name: 'SimpliFi', url: 'https://simplifipay.com/', cat: 'CaaS (UAE/MENA)', features: 'White-label card issuing API (Visa/MC), 50+ currencies, 8 banking partners across GCC', val: '~$6M', why: 'UAE card-as-a-service. GCC + Pakistan coverage. Acqui-hire for MENA.' },
+    { fit: 'IBAN/Card', name: 'Unnax', url: 'https://www.unnax.com/', cat: 'Embedded Finance (LATAM)', features: 'EMI-licensed, IBAN accounts, SEPA, embedded banking, account aggregation (Spain + LATAM)', val: '~$15M', why: 'IBAN + embedded finance in LATAM. 280+ customers across 12 countries.' },
+    { fit: 'IBAN/Card', name: 'NymCard', url: 'https://nymcard.com/', cat: 'Card Issuing (UAE)', features: 'Card issuing processor, virtual IBANs, embedded lending, own nCore processing stack', val: '~$65M', why: 'UAE card infra leader. $66M raised Series B. Full processing stack.' },
+    { fit: 'IBAN/Card', name: 'Huru', url: 'https://huru.co/', cat: 'Neobank (UAE)', features: 'CBUA-licensed, zero-balance IBAN, free Visa card, savings pots, micro-finance, remittances', val: '<$5M', why: 'UAE neobank for unbanked. IBAN + card + loans. Tiny acqui-hire.' },
+    { fit: 'IBAN/Card', name: 'Fyatu', url: 'https://fyatu.com/', cat: 'Card Issuing (LATAM)', features: 'Card issuing APIs for LATAM (Visa/MC), virtual + prepaid + debit, 30+ countries', val: '<$10M', why: 'LATAM card issuing API. Low-cost. Brazil, Mexico, Colombia coverage.' },
     { fit: 'Vendor', name: 'Cleo', url: 'https://meetcleo.com/', cat: 'AI PFM', features: 'AI chatbot for budgeting, Autopilot money management, spending analytics, salary advance', val: '$500M+', why: 'Leading AI PFM. Potential vendor/partner for consumer engagement.' },
     { fit: 'Vendor', name: 'Yapily', url: 'https://www.yapily.com/', cat: 'Open Banking', features: 'API platform connecting to 2000+ banks, AIS + PIS, VRP support, data enrichment', val: '$100-200M', why: 'Open Banking infra vendor for account aggregation + payments.' },
-    { fit: 'Vendor', name: 'Modulr', url: 'https://www.modulrfinance.com/', cat: 'Payments Infra', features: 'Payment APIs, virtual accounts, real-time payments, direct Faster Payments + SEPA access', val: '$700M+', why: 'Key payments infra vendor. Partnership or API integration opportunity.' },
-    { fit: 'Vendor', name: 'TrueLayer', url: 'https://truelayer.com/', cat: 'Open Banking', features: 'Open Banking payments, instant bank pay, VRP, payouts, account data APIs', val: '$700M+', why: 'Premium Open Banking vendor. Could replace or supplement existing integrations.' },
-    { fit: 'Vendor', name: 'Thredd', url: 'https://www.thredd.com/', cat: 'Card Processing', features: 'Global card issuing processor, Visa/MC certified, digital-first program management', val: '$200-400M', why: 'Card processing vendor. Could support eToro Money card infrastructure.' },
-    { fit: 'Vendor', name: 'Plaid', url: 'https://plaid.com/', cat: 'Financial APIs', features: 'Account linking, transaction data, identity verification, income verification', val: '$6B+', why: 'Market leader in financial data connectivity. Strategic relationship building.' },
-    { fit: 'Vendor', name: 'Personetics', url: 'https://personetics.com/', cat: 'AI/PFM B2B', features: 'AI-powered financial insights, personalized money management, self-driving finance', val: '$200-400M', why: 'B2B AI insights vendor. Could power eToro Money smart features.' },
-    { fit: 'Vendor', name: 'ClearScore', url: 'https://www.clearscore.com/', cat: 'Credit/PFM', features: 'Free credit score, credit marketplace, financial wellbeing tools, Protect insurance', val: '$1B+', why: 'Large UK consumer fintech. Potential vendor for credit/PFM features.' },
-    { fit: 'Vendor', name: 'Collinson Group', url: 'https://www.collinsongroup.com/', cat: 'Loyalty/Benefits', features: 'Airport lounges (Priority Pass), loyalty programs, travel insurance, benefits platforms', val: '$2B+', why: 'Benefits & loyalty vendor. Could enhance eToro Money premium offerings.' },
-    { fit: 'Vendor', name: 'Tide', url: 'https://www.tide.co/', cat: 'SMB Banking', features: 'Business accounts, invoicing, expense management, credit products for SMBs', val: '$600M+', why: 'Potential vendor/partner if eToro Money expands to SMB segment.' }
+    { fit: 'Vendor', name: 'Modulr', url: 'https://www.modulrfinance.com/', cat: 'Payments Infra', features: 'Payment APIs, virtual accounts, real-time payments, Faster Payments + SEPA access', val: '$700M+', why: 'Key payments infra vendor. Partnership or API integration.' },
+    { fit: 'Vendor', name: 'TrueLayer', url: 'https://truelayer.com/', cat: 'Open Banking', features: 'Open Banking payments, instant bank pay, VRP, payouts, account data APIs', val: '$700M+', why: 'Premium Open Banking vendor.' },
+    { fit: 'Vendor', name: 'Thredd', url: 'https://www.thredd.com/', cat: 'Card Processing', features: 'Global card issuing processor, Visa/MC certified, digital-first program management', val: '$200-400M', why: 'Card processing vendor.' },
+    { fit: 'Vendor', name: 'Plaid', url: 'https://plaid.com/', cat: 'Financial APIs', features: 'Account linking, transaction data, identity verification, income verification', val: '$6B+', why: 'Market leader in financial data connectivity.' },
+    { fit: 'Vendor', name: 'Personetics', url: 'https://personetics.com/', cat: 'AI/PFM B2B', features: 'AI-powered financial insights, personalized money management, self-driving finance', val: '$200-400M', why: 'B2B AI insights vendor.' },
+    { fit: 'Vendor', name: 'ClearScore', url: 'https://www.clearscore.com/', cat: 'Credit/PFM', features: 'Free credit score, credit marketplace, financial wellbeing tools', val: '$1B+', why: 'Large UK consumer fintech.' },
+    { fit: 'Vendor', name: 'Collinson Group', url: 'https://www.collinsongroup.com/', cat: 'Loyalty/Benefits', features: 'Priority Pass lounges, loyalty programs, travel insurance, benefits platforms', val: '$2B+', why: 'Benefits & loyalty vendor.' },
+    { fit: 'Vendor', name: 'Tide', url: 'https://www.tide.co/', cat: 'SMB Banking', features: 'Business accounts, invoicing, expense management, credit products for SMBs', val: '$600M+', why: 'Potential vendor if eToro Money expands to SMB.' }
   ];
 
   function renderM2020(sortCol, sortDir) {
@@ -1537,22 +1564,28 @@
         return sortDir === 'asc' ? va.localeCompare(vb) : vb.localeCompare(va);
       });
     } else {
-      const fitOrder = {'Target':0,'Acquire?':1,'Vendor':2};
+      const fitOrder = {'Target':0,'Acquire?':1,'EMI':2,'IBAN/Card':3,'Vendor':4};
       sorted.sort((a,b) => (fitOrder[a.fit]||9) - (fitOrder[b.fit]||9));
     }
-    const fitClasses = {'Target':'target','Acquire?':'acquire','Infra':'infra','Scout':'scout','Vendor':'vendor'};
-    const fitLabels = {'Target':'\ud83d\udd34 Target','Acquire?':'\ud83d\udfe0 Acquire?','Infra':'\ud83d\udfe1 Infra','Scout':'\ud83d\udd35 Scout','Vendor':'\ud83d\udfe3 Potential Vendor'};
+    const fitClasses = {'Target':'target','Acquire?':'acquire','EMI':'emi','IBAN/Card':'ibancard','Vendor':'vendor'};
+    const sectionHeaders = {
+      'EMI': ['\ud83d\udfe2 EMI Licensed (\u2264$30M)', '#10b981', 'rgba(16,185,129,0.05)', 'rgba(16,185,129,0.3)'],
+      'IBAN/Card': ['\ud83d\udd35 IBAN & Card \u2014 SEA / LATAM / UAE (\u2264$70M)', '#06b6d4', 'rgba(6,182,212,0.05)', 'rgba(6,182,212,0.3)'],
+      'Vendor': ['\ud83d\udfe3 Potential Vendors (>$100M)', '#a855f7', 'rgba(168,85,247,0.05)', 'rgba(168,85,247,0.3)']
+    };
     let lastFit = '';
     sorted.forEach(c => {
-      if (!sortCol && sortCol !== 0 && c.fit !== lastFit && c.fit === 'Vendor') {
+      if (!sortCol && sortCol !== 0 && c.fit !== lastFit && sectionHeaders[c.fit]) {
+        const h = sectionHeaders[c.fit];
         const sep = document.createElement('tr');
-        sep.innerHTML = '<td colspan="6" style="padding:12px 8px 6px;font-weight:700;font-size:13px;color:#a855f7;border-bottom:1px solid rgba(168,85,247,0.3);background:rgba(168,85,247,0.05);">\ud83d\udfe3 Potential Vendors (>)</td>';
+        sep.innerHTML = '<td colspan="6" style="padding:12px 8px 6px;font-weight:700;font-size:13px;color:' + h[1] + ';border-bottom:1px solid ' + h[3] + ';background:' + h[2] + ';">' + h[0] + '</td>';
         tbody.appendChild(sep);
       }
       lastFit = c.fit;
       const tr = document.createElement('tr');
       tr.className = 'data-row';
-      tr.innerHTML = '<td><span class="m2020-fit ' + (fitClasses[c.fit]||'') + '">' + (fitLabels[c.fit]||c.fit) + '</span></td>' +
+      const cls = fitClasses[c.fit] || '';
+      tr.innerHTML = '<td><span class="m2020-fit ' + cls + '">' + c.fit + '</span></td>' +
         '<td><a href="' + c.url + '" target="_blank" style="color:var(--etoro-blue);text-decoration:none;">' + c.name + '</a></td>' +
         '<td>' + c.cat + '</td><td style="font-size:12px;">' + c.features + '</td>' +
         '<td style="white-space:nowrap;">' + c.val + '</td><td style="font-size:12px;">' + c.why + '</td>';
@@ -1561,6 +1594,51 @@
   }
   renderM2020();
   initSorting('m2020Table', renderM2020);
+
+  // eToro Existing Vendors
+  const etoroVendors = [
+    { name: 'Visa', cat: 'Card Schemes' },
+    { name: 'Mastercard', cat: 'Card Schemes' },
+    { name: 'Tribe Payments', cat: 'Card Processing' },
+    { name: 'Banking Circle', cat: 'Banking Infrastructure' },
+    { name: 'ClearBank', cat: 'Banking Infrastructure' },
+    { name: 'DBS Bank', cat: 'Banking Infrastructure' },
+    { name: 'JPMorgan', cat: 'Banking Infrastructure' },
+    { name: 'Currency Cloud', cat: 'FX & Cross-Border' },
+    { name: 'Nium', cat: 'FX & Cross-Border' },
+    { name: 'Finmo', cat: 'FX & Cross-Border' },
+    { name: 'dLocal', cat: 'FX & Cross-Border' },
+    { name: 'AstroPay', cat: 'FX & Cross-Border' },
+    { name: 'Checkout.com', cat: 'Payment Processing' },
+    { name: 'Worldpay', cat: 'Payment Processing' },
+    { name: 'Nuvei', cat: 'Payment Processing' },
+    { name: 'Adyen', cat: 'Payment Processing' },
+    { name: 'Stripe', cat: 'Payment Processing' },
+    { name: 'Ixopay', cat: 'Payment Orchestration' },
+    { name: 'OpenPayd', cat: 'BaaS & Accounts' },
+    { name: 'TAG', cat: 'BaaS & Accounts' },
+    { name: 'Ecompay', cat: 'BaaS & Accounts' },
+    { name: 'Klarna', cat: 'BNPL & Lending' },
+    { name: 'Trustly', cat: 'Open Banking Payments' }
+  ];
+
+  (function renderVendors() {
+    const grid = document.getElementById('vendorGrid');
+    if (!grid) return;
+    const cats = [...new Set(etoroVendors.map(v => v.cat))];
+    cats.forEach(cat => {
+      const header = document.createElement('div');
+      header.className = 'vendor-cat-header';
+      header.textContent = cat;
+      grid.appendChild(header);
+      etoroVendors.filter(v => v.cat === cat).forEach(v => {
+        const card = document.createElement('div');
+        card.className = 'vendor-card';
+        card.innerHTML = '<div class="v-name">' + v.name + '</div><div class="v-cat">' + v.cat + '</div>';
+        grid.appendChild(card);
+      });
+    });
+  })();
 
   // ── Slide Navigation ──
   let currentSlide = 0;
